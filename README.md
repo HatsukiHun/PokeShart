@@ -1,4 +1,4 @@
-![Game Screenshot](PokeShart/Example.png)
+[![Game Screenshot](PokeShart/Example.png)](https://github.com/HatsukiHun/PokeShart/blob/main/Exmple.png?raw=true)
 
 # Pokéfart
 
