@@ -1,4 +1,4 @@
-![Game Screenshot](Example.png)
+![Game Screenshot](PokeShart/Example.png)
 
 # Pokéfart
 
