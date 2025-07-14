@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<!-- Credit: Suki (hidden) -->
+<!-- Credit: Matan (hidden) -->
 <head>
   <title>Pokemon</title>
-  <!-- Suki was here (hidden credit) -->
+  <!-- Matan was here (hidden credit) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
-  <script type = "text/javascript" src = "./pokemon.js"></script>
+  <script src="movesData.js"></script>
+  <script src="pokemonData.js"></script>
+  <script src="pokemon.js"></script>
   <link rel = "stylesheet" type = "text/css" href = "pokemon.css" />
 </head>
 <body>
-  <!-- Suki (hidden) -->
+  <!-- Matan (hidden) -->
   <canvas id="squares-bg"></canvas>
+  <audio id="explosionSound" src="explsion.mp3" preload="auto"></audio>
   <div class="game-container">
-    <!-- Suki credit hidden here -->
+    <!-- Matan credit hidden here -->
     <div class="game">
       <div class="opponent">
         <div class="stats">
@@ -29,6 +32,9 @@
           </div>
           <div class="status-container">
             <div id="opponentStatus" class="status-box"></div>
+          </div>
+          <div class="statmod-container" style="float: right; text-align: right;">
+            <div id="opponentStatMods"></div>
           </div>
         </div>
         <img class="pokemon" src="" alt="Opponent Pokemon" />
@@ -47,6 +53,9 @@
           </div>
           <div class="status-container">
             <div id="playerStatus" class="status-box"></div>
+          </div>
+          <div class="statmod-container" style="float: right; text-align: right;">
+            <div id="playerStatMods"></div>
           </div>
         </div>
         <img class="pokemon" src="" alt="Player Pokemon" />
@@ -68,5 +77,5 @@
       </div>
     </div>
   </div>
-  <!-- End of file // Suki -->
+  <!-- End of file // Matan -->
 </body>

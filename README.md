@@ -1,32 +1,30 @@
-![Game Screenshot](PokeShart/Example.png)
+[![Game Screenshot](PokeShart/Example.png)](https://github.com/HatsukiHun/PokeShart/blob/main/Exmple.png?raw=true)
 
-# Pokéfart
+# Poké Shart
 
-A retro-style Pokémon battle game built with vanilla JavaScript, HTML, and CSS. Battle against AI opponents with authentic Pokémon mechanics including status effects, speed-based turn order, and classic battle animations.
+A retro-style Pokémon battle game built with vanilla JavaScript, HTML, and CSS. Battle against AI opponents with authentic Pokémon mechanics, status effects, and a polished, modern UI.
 
 ## Features
 
 ### Core Gameplay
 - Turn-based Pokémon battles with authentic mechanics
-- 150+ Pokémon from the original Pokédex with accurate stats
-- Speed-based turn order - faster Pokémon attack first
-- 4 moves per Pokémon with unique damage calculations
-- HP bars and counters with visual feedback
-- Random level generation (1-100) for varied difficulty
+- 600+ Pokémon from the original Pokédex with accurate stats
+- 4 moves per Pokémon, always valid and type-appropriate
+- Random level generation (50-100) for varied difficulty
 
 ### Battle Mechanics
-- Status effects: Sleep, Paralysis, Poison, Confusion
-- Stat modifications: Attack, Defense, Speed, Accuracy boosts/nerfs
-- Move accuracy system with miss chances
-- Critical hit system for extra damage
-- Faint detection with game over/reset functionality
+- Status effects: Sleep, Paralysis, Poison, Burn, Freeze, Toxic, Confusion
+- Stat modifications: Attack, Defense, Speed, Accuracy (with real-time UI feedback)
+- Only one major status at a time (except confusion, which can stack)
+- Move accuracy system (minimum 70%) and critical hits
+- Battles are longer and more strategic (damage halved, pacing improved)
 
 ### Visual Features
 - Retro pixel art style with authentic Pokémon sprites
-- Animated background with moving squares
-- Status effect animations with fade-in effects
-- Explosion animation on game over
+- Animated background
+- Status effect and stat mod animations with fade-in effects
 - Responsive UI with hover effects and button states
+- Stat feedback boxes that show current multipliers
 
 ## How to Play
 
@@ -45,9 +43,11 @@ A retro-style Pokémon battle game built with vanilla JavaScript, HTML, and CSS.
 ## Project Structure
 
 ```
-Pokéfart/
+PokeShart/
 ├── index.html          # Main game interface
-├── pokemon.js          # Game logic and Pokémon database
+├── pokemon.js          # Game logic and battle system
+├── movesData.js        # Complete move database
+├── pokemonData.js      # Pokémon stats and sprites
 ├── pokemon.css         # Styling and animations
 └── README.md           # This file
 ```
@@ -61,30 +61,28 @@ Pokéfart/
 
 ### Key Components
 
-#### Pokémon Database (pokemon.js)
-- 150+ Pokémon with accurate stats from the original games
+#### Pokémon Database (pokemonData.js)
+- 649 Pokémon with accurate stats from the original games
 - Each Pokémon has: HP, Attack, Defense, Special Attack, Special Defense, Speed
-- 4 unique moves per Pokémon with different damage types
+- 4 unique, valid moves per Pokémon
 
-#### Battle System
-- Turn order calculation based on speed stats with randomness
-- Damage calculation using Pokémon stats and move power
-- Status effect management with turn counters
-- Move accuracy and critical hit systems
+#### Move Database (movesData.js)
+- All classic moves with accurate power, accuracy, type, and effects
+- Moves like Whirlwind, Roar, and Self-Destruct have been removed for balance
+
+#### Battle System (pokemon.js)
+- Speed-based turn order with randomness
+- Damage calculation using Pokémon stats and move power (halved for longer battles)
+- Status effect management with turn counters and UI feedback
+- Stat mod system with real-time feedback boxes
+- Message queue ensures all messages and effects are shown in order
+- Multi-hit and status moves process sequentially
 
 #### Visual System
 - Pixel art rendering with crisp edges
 - Animated backgrounds using HTML5 Canvas
-- Status effect animations with CSS transitions
+- Status and stat mod animations with CSS transitions
 - Responsive UI that adapts to different screen sizes
-
-## Design Philosophy
-
-This game captures the authentic feel of classic Pokémon battles with:
-- Retro aesthetics using pixel art and classic fonts
-- Authentic mechanics matching the original games
-- Smooth animations that enhance the battle experience
-- Responsive design that works across devices
 
 ## Browser Compatibility
 
@@ -92,6 +90,8 @@ This game captures the authentic feel of classic Pokémon battles with:
 - Firefox
 - Safari
 - Edge
+- Opera
+- Brave
 
 ## Getting Started
 
@@ -99,16 +99,19 @@ This game captures the authentic feel of classic Pokémon battles with:
 2. Open `index.html` in your web browser
 3. Start battling! No installation or setup required
 
-## Future Enhancements
+## Changelog
 
-Potential features for future versions:
-- Sound effects and background music
-- More Pokémon and moves
-- Evolution mechanics
-- Multiplayer battles
-- Save/load game states
-- Different battle formats (2v2, etc.)
+### Recent Additions & Fixes
+- **Removed Moves:** Whirlwind, Roar, and Self-Destruct are no longer available
+- **Disable Move:** Now disables the last used move for 3-5 turns, with clear UI feedback
+- **Status & Stat Feedback:** All status effects and stat changes are shown in real-time with clear UI
+- **Message Queue:** All battle messages and effects are shown one at a time, in the correct order
+- **Multi-Hit & Status Moves:** Processed sequentially with proper timing and feedback
+- **Major Status Rule:** Only one major status at a time (except confusion, which can stack)
+- **Battle Pacing:** Damage halved, minimum move accuracy set to 70% for longer, more strategic battles
+- **UI Improvements:** Play Again button is visually improved and repositioned for better balance
+- **Bug Fixes:** Fixed turn system freezes, Growth stat logic, and stat feedback display
 
 ## Credits
 
-Created by Suki - A passion project bringing classic Pokémon battles to the web!
+Created by Matan - A passion project bringing classic Pokémon battles to the web!

@@ -1,51 +1,6 @@
-// Credit: Suki (hidden)
-// Pokemon Database - 150 randomly selected Pokemon from Pokédex
-var pokemonDatabase = [
-  {id: 1, name: "Bulbasaur", type: "Grass/Poison", hp: 45, attack: 49, defense: 49, spAtk: 65, spDef: 65, speed: 45, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif", moves: ["Vine Whip", "Razor Leaf", "Seed Bomb", "Growth"]},
-  {id: 4, name: "Charmander", type: "Fire", hp: 39, attack: 52, defense: 43, spAtk: 60, spDef: 50, speed: 65, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif", moves: ["Ember", "Fire Fang", "Flame Burst", "Growl"]},
-  {id: 7, name: "Squirtle", type: "Water", hp: 44, attack: 48, defense: 65, spAtk: 50, spDef: 64, speed: 43, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif", moves: ["Water Gun", "Bubble", "Aqua Jet", "Tackle"]},
-  {id: 25, name: "Pikachu", type: "Electric", hp: 35, attack: 55, defense: 40, spAtk: 50, spDef: 50, speed: 90, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif", moves: ["Thunder Shock", "Quick Attack", "Thunderbolt", "Agility"]},
-  {id: 133, name: "Eevee", type: "Normal", hp: 55, attack: 55, defense: 50, spAtk: 45, spDef: 65, speed: 55, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/eevee.gif", moves: ["Tackle", "Quick Attack", "Bite", "Growl"]},
-  {id: 6, name: "Charizard", type: "Fire/Flying", hp: 78, attack: 84, defense: 78, spAtk: 109, spDef: 85, speed: 100, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif", moves: ["Flame Thrower", "Dragon Claw", "Ember", "Growl"]},
-  {id: 9, name: "Blastoise", type: "Water", hp: 79, attack: 83, defense: 100, spAtk: 85, spDef: 105, speed: 78, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/blastoise.gif", moves: ["Water Cannon", "Water Pulse", "Surf", "Tackle"]},
-  {id: 3, name: "Venusaur", type: "Grass/Poison", hp: 80, attack: 82, defense: 83, spAtk: 100, spDef: 100, speed: 80, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/venusaur.gif", moves: ["Vine Whip", "Razor Leaf", "Solar Beam", "Growth"]},
-  {id: 150, name: "Mewtwo", type: "Psychic", hp: 106, attack: 110, defense: 90, spAtk: 154, spDef: 90, speed: 130, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/mewtwo.gif", moves: ["Psychic", "Shadow Ball", "Aura Sphere", "Calm Mind"]},
-  {id: 149, name: "Dragonite", type: "Dragon/Flying", hp: 91, attack: 134, defense: 95, spAtk: 100, spDef: 100, speed: 80, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/dragonite.gif", moves: ["Dragon Rush", "Thunder Wave", "Hyper Beam", "Agility"]},
-  {id: 2, name: "Ivysaur", type: "Grass/Poison", hp: 60, attack: 62, defense: 63, spAtk: 80, spDef: 80, speed: 60, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/ivysaur.gif", moves: ["Vine Whip", "Razor Leaf", "Poison Powder", "Growth"]},
-  {id: 5, name: "Charmeleon", type: "Fire", hp: 58, attack: 64, defense: 58, spAtk: 80, spDef: 65, speed: 80, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/charmeleon.gif", moves: ["Ember", "Fire Fang", "Slash", "Growl"]},
-  {id: 8, name: "Wartortle", type: "Water", hp: 59, attack: 63, defense: 80, spAtk: 65, spDef: 80, speed: 58, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/wartortle.gif", moves: ["Water Gun", "Bite", "Aqua Tail", "Slash"]},
-  {id: 12, name: "Butterfree", type: "Bug/Flying", hp: 60, attack: 45, defense: 50, spAtk: 90, spDef: 80, speed: 70, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/butterfree.gif", moves: ["Confusion", "Gust", "Sleep Powder", "String Shot"]},
-  {id: 15, name: "Beedrill", type: "Bug/Poison", hp: 65, attack: 90, defense: 40, spAtk: 45, spDef: 80, speed: 75, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/beedrill.gif", moves: ["Poison Sting", "Fury Attack", "Twineedle", "Agility"]},
-  {id: 18, name: "Pidgeot", type: "Normal/Flying", hp: 83, attack: 80, defense: 75, spAtk: 70, spDef: 70, speed: 101, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/pidgeot.gif", moves: ["Gust", "Wing Attack", "Quick Attack", "Agility"]},
-  {id: 20, name: "Raticate", type: "Normal", hp: 55, attack: 81, defense: 60, spAtk: 50, spDef: 70, speed: 97, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/raticate.gif", moves: ["Tackle", "Quick Attack", "Hyper Fang", "Scary Face"]},
-  {id: 22, name: "Fearow", type: "Normal/Flying", hp: 65, attack: 90, defense: 65, spAtk: 61, spDef: 61, speed: 100, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/fearow.gif", moves: ["Peck", "Fury Attack", "Drill Peck", "Agility"]},
-  {id: 24, name: "Arbok", type: "Poison", hp: 60, attack: 85, defense: 69, spAtk: 65, spDef: 79, speed: 80, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/arbok.gif", moves: ["Poison Sting", "Bite", "Acid", "Glare"]},
-  {id: 26, name: "Raichu", type: "Electric", hp: 60, attack: 90, defense: 55, spAtk: 90, spDef: 80, speed: 110, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/raichu.gif", moves: ["Thunder Shock", "Quick Attack", "Thunderbolt", "Agility"]},
-  {id: 28, name: "Sandslash", type: "Ground", hp: 75, attack: 100, defense: 110, spAtk: 45, spDef: 55, speed: 65, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/sandslash.gif", moves: ["Scratch", "Sand Attack", "Slash", "Defense Curl"]},
-  {id: 31, name: "Nidoqueen", type: "Poison/Ground", hp: 90, attack: 92, defense: 87, spAtk: 75, spDef: 85, speed: 76, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/nidoqueen.gif", moves: ["Poison Sting", "Bite", "Body Slam", "Growl"]},
-  {id: 34, name: "Nidoking", type: "Poison/Ground", hp: 81, attack: 102, defense: 77, spAtk: 85, spDef: 75, speed: 85, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/nidoking.gif", moves: ["Poison Sting", "Horn Attack", "Thrash", "Leer"]},
-  {id: 36, name: "Clefable", type: "Fairy", hp: 95, attack: 70, defense: 73, spAtk: 95, spDef: 90, speed: 60, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/clefable.gif", moves: ["Pound", "Sing", "Double Slap", "Growl"]},
-  {id: 38, name: "Ninetales", type: "Fire", hp: 73, attack: 76, defense: 75, spAtk: 81, spDef: 100, speed: 100, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/ninetales.gif", moves: ["Ember", "Quick Attack", "Fire Spin", "Growl"]},
-  {id: 40, name: "Wigglytuff", type: "Normal/Fairy", hp: 140, attack: 70, defense: 45, spAtk: 85, spDef: 50, speed: 45, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/wigglytuff.gif", moves: ["Pound", "Sing", "Double Slap", "Growl"]},
-  {id: 45, name: "Vileplume", type: "Grass/Poison", hp: 75, attack: 80, defense: 85, spAtk: 110, spDef: 90, speed: 50, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/vileplume.gif", moves: ["Vine Whip", "Poison Powder", "Petal Dance", "Growth"]},
-  {id: 47, name: "Parasect", type: "Bug/Grass", hp: 60, attack: 95, defense: 80, spAtk: 60, spDef: 80, speed: 30, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/parasect.gif", moves: ["Scratch", "Poison Powder", "Slash", "Spore"]},
-  {id: 49, name: "Venomoth", type: "Bug/Poison", hp: 70, attack: 65, defense: 60, spAtk: 90, spDef: 75, speed: 90, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/venomoth.gif", moves: ["Confusion", "Poison Powder", "Psybeam", "Sleep Powder"]},
-  {id: 51, name: "Dugtrio", type: "Ground", hp: 35, attack: 100, defense: 50, spAtk: 50, spDef: 70, speed: 120, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/dugtrio.gif", moves: ["Scratch", "Sand Attack", "Slash", "Growl"]},
-  {id: 53, name: "Persian", type: "Normal", hp: 65, attack: 70, defense: 60, spAtk: 65, spDef: 65, speed: 115, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/persian.gif", moves: ["Scratch", "Bite", "Slash", "Growl"]},
-  {id: 55, name: "Golduck", type: "Water", hp: 80, attack: 82, defense: 78, spAtk: 95, spDef: 80, speed: 85, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/golduck.gif", moves: ["Scratch", "Water Gun", "Slash", "Tail Whip"]},
-  {id: 57, name: "Primeape", type: "Fighting", hp: 65, attack: 105, defense: 60, spAtk: 60, spDef: 70, speed: 95, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/primeape.gif", moves: ["Scratch", "Karate Chop", "Low Kick", "Leer"]},
-  {id: 59, name: "Arcanine", type: "Fire", hp: 90, attack: 110, defense: 80, spAtk: 100, spDef: 80, speed: 95, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/arcanine.gif", moves: ["Bite", "Ember", "Fire Fang", "Growl"]},
-  {id: 62, name: "Poliwrath", type: "Water/Fighting", hp: 90, attack: 95, defense: 95, spAtk: 70, spDef: 90, speed: 70, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/poliwrath.gif", moves: ["Bubble", "Karate Chop", "Water Gun", "Hypnosis"]},
-  {id: 65, name: "Alakazam", type: "Psychic", hp: 55, attack: 50, defense: 45, spAtk: 135, spDef: 95, speed: 120, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/alakazam.gif", moves: ["Confusion", "Psychic", "Psybeam", "Kinesis"]},
-  {id: 68, name: "Machamp", type: "Fighting", hp: 90, attack: 130, defense: 80, spAtk: 65, spDef: 85, speed: 55, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/machamp.gif", moves: ["Karate Chop", "Low Kick", "Seismic Toss", "Leer"]},
-  {id: 71, name: "Victreebel", type: "Grass/Poison", hp: 80, attack: 105, defense: 65, spAtk: 100, spDef: 70, speed: 70, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/victreebel.gif", moves: ["Vine Whip", "Acid", "Razor Leaf", "Growth"]},
-  {id: 73, name: "Tentacruel", type: "Water/Poison", hp: 80, attack: 70, defense: 65, spAtk: 80, spDef: 120, speed: 100, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/tentacruel.gif", moves: ["Poison Sting", "Bubble", "Acid", "Supersonic"]},
-  {id: 76, name: "Golem", type: "Rock/Ground", hp: 80, attack: 120, defense: 130, spAtk: 55, spDef: 65, speed: 45, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/golem.gif", moves: ["Tackle", "Rock Throw", "Rock Slide", "Defense Curl"]},
-  {id: 78, name: "Rapidash", type: "Fire", hp: 65, attack: 100, defense: 70, spAtk: 80, spDef: 80, speed: 105, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/rapidash.gif", moves: ["Tackle", "Ember", "Fire Spin", "Growl"]},
-  {id: 80, name: "Slowbro", type: "Water/Psychic", hp: 95, attack: 75, defense: 110, spAtk: 100, spDef: 80, speed: 30, sprite: "http://img.pokemondb.net/sprites/black-white/anim/normal/slowbro.gif", moves: ["Confusion", "Water Gun", "Psychic", "Growl"]}
-];
+// Credit: Matan (hidden)
 
-// Suki was here (hidden credit)
+// Matan was here (hidden credit)
 
 // Status Effect Box Fade-in System (Vanilla JS version of React FadeContent)
 function createStatusFadeIn(element, options = {}) {
@@ -116,66 +71,116 @@ function determineTurnOrder() {
 // Function to execute a complete turn with speed-based order
 function executeTurn(playerMoveIndex) {
   if (userHP <= 0 || opHP <= 0) return;
-  
+
+  // Block disabled move for player
+  if (playerDisabledMove && playerDisabledTurns > 0 && currentPlayerPokemon.moves[playerMoveIndex] === playerDisabledMove) {
+    addMessage(currentPlayerPokemon.name + "'s " + playerDisabledMove + " is disabled! Choose another move.");
+    setMessage("What should " + currentPlayerPokemon.name + " do?");
+    return;
+  }
+
   var playerGoesFirst = determineTurnOrder();
   var playerMoveName = currentPlayerPokemon.moves[playerMoveIndex];
   var opponentMoveIndex = Math.floor(Math.random() * 4);
   var opponentMoveName = currentOpponentPokemon.moves[opponentMoveIndex];
-  
-  // Execute moves in speed order
-  if (playerGoesFirst) {
-    // Player goes first
-    if (checkStatusEffects(false)) {
-      executeMove(playerMoveName, currentPlayerPokemon, false);
-    }
-    
-    // Check if opponent is still alive
-    if (opHP > 0 && checkStatusEffects(true)) {
-      setTimeout(() => {
-        executeMove(opponentMoveName, currentOpponentPokemon, true);
-        
-        // Reset for next turn
-        setTimeout(() => {
-          if (userHP > 0 && opHP > 0) {
-            setMessage("What should " + currentPlayerPokemon.name + " do?");
-          }
-        }, 1000);
-      }, 1500);
-    } else {
-      // Opponent fainted or can't move, reset for next turn
-      setTimeout(() => {
-        if (userHP > 0 && opHP > 0) {
-          setMessage("What should " + currentPlayerPokemon.name + " do?");
-        }
-      }, 1000);
-    }
-  } else {
-    // Opponent goes first
-    if (checkStatusEffects(true)) {
-      executeMove(opponentMoveName, currentOpponentPokemon, true);
-    }
-    
-    // Check if player is still alive
-    if (userHP > 0 && checkStatusEffects(false)) {
-      setTimeout(() => {
-        executeMove(playerMoveName, currentPlayerPokemon, false);
-        
-        // Reset for next turn
-        setTimeout(() => {
-          if (userHP > 0 && opHP > 0) {
-            setMessage("What should " + currentPlayerPokemon.name + " do?");
-          }
-        }, 1000);
-      }, 1500);
-    } else {
-      // Player fainted or can't move, reset for next turn
-      setTimeout(() => {
-        if (userHP > 0 && opHP > 0) {
-          setMessage("What should " + currentPlayerPokemon.name + " do?");
-        }
-      }, 1000);
+
+  // Block disabled move for opponent
+  if (opponentDisabledMove && opponentDisabledTurns > 0 && opponentMoveName === opponentDisabledMove) {
+    // Pick a different move if possible
+    var availableMoves = currentOpponentPokemon.moves.filter(m => m !== opponentDisabledMove);
+    if (availableMoves.length > 0) {
+      opponentMoveName = availableMoves[Math.floor(Math.random() * availableMoves.length)];
     }
   }
+
+  function queuePrompt() {
+    setMessage("What should " + currentPlayerPokemon.name + " do?");
+  }
+
+  function afterPlayerMove() {
+    if (opHP > 0 && checkStatusEffects(true)) {
+      executeMove(opponentMoveName, currentOpponentPokemon, true);
+      if (messageQueue.length === 0) {
+        queuePrompt();
+      } else {
+        messageQueueCallback = queuePrompt;
+      }
+    } else {
+      if (messageQueue.length === 0) {
+        queuePrompt();
+      } else {
+        messageQueueCallback = queuePrompt;
+      }
+    }
+  }
+
+  function afterOpponentMove() {
+    if (userHP > 0 && checkStatusEffects(false)) {
+      executeMove(playerMoveName, currentPlayerPokemon, false);
+      if (messageQueue.length === 0) {
+        queuePrompt();
+      } else {
+        messageQueueCallback = queuePrompt;
+      }
+    } else {
+      if (messageQueue.length === 0) {
+        queuePrompt();
+      } else {
+        messageQueueCallback = queuePrompt;
+      }
+    }
+  }
+
+  if (playerGoesFirst) {
+    if (checkStatusEffects(false)) {
+      executeMove(playerMoveName, currentPlayerPokemon, false);
+      if (messageQueue.length === 0) {
+        afterPlayerMove();
+      } else {
+        messageQueueCallback = afterPlayerMove;
+      }
+    } else {
+      if (opHP > 0 && checkStatusEffects(true)) {
+        executeMove(opponentMoveName, currentOpponentPokemon, true);
+        if (messageQueue.length === 0) {
+          queuePrompt();
+        } else {
+          messageQueueCallback = queuePrompt;
+        }
+      } else {
+        if (messageQueue.length === 0) {
+          queuePrompt();
+        } else {
+          messageQueueCallback = queuePrompt;
+        }
+      }
+    }
+  } else {
+    if (checkStatusEffects(true)) {
+      executeMove(opponentMoveName, currentOpponentPokemon, true);
+      if (messageQueue.length === 0) {
+        afterOpponentMove();
+      } else {
+        messageQueueCallback = afterOpponentMove;
+      }
+    } else {
+      if (userHP > 0 && checkStatusEffects(false)) {
+        executeMove(playerMoveName, currentPlayerPokemon, false);
+        if (messageQueue.length === 0) {
+          queuePrompt();
+        } else {
+          messageQueueCallback = queuePrompt;
+        }
+      } else {
+        if (messageQueue.length === 0) {
+          queuePrompt();
+        } else {
+          messageQueueCallback = queuePrompt;
+        }
+      }
+    }
+  }
+  decrementDisableCounters();
 }
 
 // Game state variables
@@ -207,6 +212,7 @@ var cheatCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'A
 // Message queue system
 var messageQueue = [];
 var isDisplayingMessage = false;
+var messageQueueCallback = null;
 
 // Track the current faint message (if any)
 let currentFaintMessage = null;
@@ -277,13 +283,17 @@ function initializeBattle() {
   opponentStatus = [];
   playerStatusTurns = {};
   opponentStatusTurns = {};
+
+  // Assign moves to Pokemon based on their types
+  currentPlayerPokemon.moves = assignMovesToPokemon(currentPlayerPokemon);
+  currentOpponentPokemon.moves = assignMovesToPokemon(currentOpponentPokemon);
   
   // Update status displays
   updateStatusDisplay();
   
   // Set opponent moves
-  opAttacks = currentOpponentPokemon.moves.map(function(moveName) {
-    return function() { executeMove(moveName, currentOpponentPokemon, true); };
+  opAttacks = currentOpponentPokemon.moves.map(function (moveName) {
+    return function () { executeMove(moveName, currentOpponentPokemon, true); };
   });
   
   // Update displays
@@ -326,6 +336,53 @@ function updateMoveButtons() {
 function updateStatusDisplay() {
   updatePlayerStatusDisplay();
   updateOpponentStatusDisplay();
+  updatePlayerStatMods();
+  updateOpponentStatMods();
+}
+
+// Helper to format stat mod value as xN (e.g., x2, x1.5)
+function formatStatMod(val) {
+  return 'x' + (Math.round(val * 100) / 100).toFixed(2).replace(/\.00$/, '');
+}
+
+// Update player stat mod boxes
+function updatePlayerStatMods() {
+  var container = document.getElementById('playerStatMods');
+  container.innerHTML = '';
+  var stats = [
+    { key: 'userAttack', label: 'atk', val: window.userAttack },
+    { key: 'userDefense', label: 'def', val: window.userDefense },
+    { key: 'userSpeed', label: 'spd', val: window.userSpeed },
+    { key: 'userAccuracy', label: 'acc', val: window.userAccuracy }
+  ];
+  stats.forEach(stat => {
+    if (stat.val && stat.val !== 1) {
+      var div = document.createElement('div');
+      div.className = 'statmod-box';
+      div.textContent = stat.label + ' ' + formatStatMod(stat.val);
+      container.appendChild(div);
+    }
+  });
+}
+
+// Update opponent stat mod boxes
+function updateOpponentStatMods() {
+  var container = document.getElementById('opponentStatMods');
+  container.innerHTML = '';
+  var stats = [
+    { key: 'opAttack', label: 'atk', val: window.opAttack },
+    { key: 'opDefense', label: 'def', val: window.opDefense },
+    { key: 'opSpeed', label: 'spd', val: window.opSpeed },
+    { key: 'opAccuracy', label: 'acc', val: window.opAccuracy }
+  ];
+  stats.forEach(stat => {
+    if (stat.val && stat.val !== 1) {
+      var div = document.createElement('div');
+      div.className = 'statmod-box';
+      div.textContent = stat.label + ' ' + formatStatMod(stat.val);
+      container.appendChild(div);
+    }
+  });
 }
 
 // Function to update player status display
@@ -338,7 +395,7 @@ function updatePlayerStatusDisplay() {
     playerStatus.forEach(status => {
       var statusDiv = document.createElement('div');
       statusDiv.className = 'status-box visible';
-      switch(status) {
+      switch (status) {
         case 'sleep':
           statusDiv.classList.add('status-sleep');
           statusDiv.textContent = 'SLEEP';
@@ -372,7 +429,7 @@ function updateOpponentStatusDisplay() {
     opponentStatus.forEach(status => {
       var statusDiv = document.createElement('div');
       statusDiv.className = 'status-box visible';
-      switch(status) {
+      switch (status) {
         case 'sleep':
           statusDiv.classList.add('status-sleep');
           statusDiv.textContent = 'SLEEP';
@@ -415,13 +472,27 @@ function setMessage(message, isFaint = false) {
 }
 
 // Override addMessage to enforce faint message priority
-function addMessage(message) {
+function addMessage(message, callback) {
   // If a Pokemon is fainted, always show the faint message
   if ((userHP === 0 || opHP === 0) && currentFaintMessage) {
     setMessage(currentFaintMessage);
+    if (callback) callback();
     return;
   }
+  
+  // If no message but callback provided, execute callback immediately
+  if (!message && callback) {
+    callback();
+    return;
+  }
+  
+  // If no message and no callback, do nothing
+  if (!message) {
+    return;
+  }
+  
   messageQueue.push(message);
+  if (callback) messageQueueCallback = callback;
   if (!isDisplayingMessage) {
     displayNextMessage();
   }
@@ -432,16 +503,19 @@ function displayNextMessage() {
   if (messageQueue.length === 0) {
     isDisplayingMessage = false;
     enableMoveButtons();
+    if (messageQueueCallback) {
+      var cb = messageQueueCallback;
+      messageQueueCallback = null;
+      cb();
+    }
     return;
   }
-  
   isDisplayingMessage = true;
   disableMoveButtons();
   var message = messageQueue.shift();
   document.getElementById('message').innerHTML = message;
-  
   // Wait 1 second before showing next message
-  setTimeout(function() {
+  setTimeout(function () {
     displayNextMessage();
   }, 1000);
 }
@@ -472,68 +546,306 @@ function enableMoveButtons() {
 
 // Function to execute moves
 function executeMove(moveName, pokemon, isOpponent) {
+  // Track last used move
+  if (isOpponent) {
+    opponentLastMove = moveName;
+  } else {
+    playerLastMove = moveName;
+  }
+
   var targetHP = isOpponent ? userHP : opHP;
   var targetMaxHP = isOpponent ? calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level) : calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level);
   var attackerName = pokemon.name;
   var targetName = isOpponent ? currentPlayerPokemon.name : currentOpponentPokemon.name;
-  
-  var miss = Math.floor((Math.random() * 10) + 1);
-  if(miss == 1) {
-    addMessage(attackerName + "'s attack missed!");
-    return;
-  }
-  
+  var attackerStatus = isOpponent ? opponentStatus : playerStatus;
+  var targetStatus = isOpponent ? playerStatus : opponentStatus;
+  var attackerStatusTurns = isOpponent ? opponentStatusTurns : playerStatusTurns;
+  var targetStatusTurns = isOpponent ? playerStatusTurns : opponentStatusTurns;
+
   // Check if it's a status move
   if (isStatusMove(moveName)) {
     executeStatusMove(moveName, pokemon, isOpponent);
-  } else {
-      // Regular damage move
-  var baseDmg = getMoveDamage(moveName) * (isOpponent ? opAttack : userAttack);
-  var critical = Math.floor((Math.random() * 10) + 1);
-  
-  // Apply accuracy check
-  var accuracy = isOpponent ? opAccuracy : userAccuracy;
-  var missChance = Math.max(0.1, 1 - accuracy); // Higher accuracy = lower miss chance
-  if (Math.random() < missChance) {
-    addMessage(attackerName + "'s attack missed!");
     return;
   }
-  
-  if(critical == 4) {
-    baseDmg *= 2;
+
+  // Regular damage move - check accuracy first
+  var moveAccuracy = getMoveAccuracy(moveName);
+  var attackerAccuracy = isOpponent ? opAccuracy : userAccuracy;
+
+  // Calculate final accuracy (move accuracy * attacker's accuracy modifier)
+  var finalAccuracy = moveAccuracy * attackerAccuracy;
+
+  // Check if move hits
+  if (Math.random() * 100 > finalAccuracy) {
+    addMessage(attackerName + "'s " + moveName + " missed!");
+    return;
   }
-  
-  // Apply defense reduction
-  var targetDefense = isOpponent ? userDefense : opDefense;
-  baseDmg = Math.floor(baseDmg / targetDefense);
-  
-  targetHP -= baseDmg;
-    if(targetHP < 0) targetHP = 0;
-    
-    if(isOpponent) {
+
+  // Multi-hit moves
+  var effect = getMoveEffect(moveName);
+  var hits = 1;
+  if (effect && effect.match(/Hits (\d)-(\d) times/)) {
+    var match = effect.match(/Hits (\d)-(\d) times/);
+    var minHits = parseInt(match[1]);
+    var maxHits = parseInt(match[2]);
+    hits = Math.floor(Math.random() * (maxHits - minHits + 1)) + minHits;
+  } else if (effect && effect.match(/Hits twice/)) {
+    hits = 2;
+  }
+
+  var totalDamage = 0;
+  var fainted = false;
+
+  function processHit(i) {
+    if (i >= hits || fainted) {
+      // After all hits, show move summary and process effects
+      addMessage(attackerName + " used " + moveName + "!", function() {
+        processMoveEffect(moveName, pokemon, isOpponent, totalDamage);
+      });
+      return;
+    }
+    var baseDmg = getMoveDamage(moveName) * (isOpponent ? opAttack : userAttack);
+    var critical = Math.floor((Math.random() * 10) + 1);
+    if (effect && effect.includes("High critical hit ratio")) {
+      if (Math.random() < 0.25) {
+        baseDmg *= 2;
+        addMessage("A critical hit!");
+      }
+    } else if (critical == 4) {
+      baseDmg *= 2;
+      addMessage("A critical hit!");
+    }
+    // Apply defense reduction
+    var targetDefense = isOpponent ? userDefense : opDefense;
+    baseDmg = Math.floor(baseDmg / targetDefense);
+    baseDmg = Math.max(1, baseDmg); // Always at least 1
+    targetHP -= baseDmg * 0.5;
+    totalDamage += baseDmg * 0.5;
+    if (targetHP < 0) targetHP = 0;
+    if (isOpponent) {
       userHP = targetHP;
       updateHP('myHPBar', 'myHPCounter', userHP, targetMaxHP);
-      if(userHP == 0) {
+      if (userHP == 0) {
         showOnlyFaintMessage(currentPlayerPokemon.name + " has fainted, You lost!");
         showResetButton();
+        fainted = true;
         return;
       }
     } else {
       opHP = targetHP;
       updateHP('apHPBar', 'apHPCounter', opHP, targetMaxHP);
-      if(opHP == 0) {
+      if (opHP == 0) {
         showOnlyFaintMessage(currentOpponentPokemon.name + " has fainted, Enemy lost!");
         showResetButton();
+        fainted = true;
         return;
       }
     }
-    
-    addMessage(attackerName + " used " + moveName);
+    if (hits > 1) {
+      addMessage(attackerName + " hit " + targetName + "! (" + (i+1) + "/" + hits + ")", function() {
+        processHit(i+1);
+      });
+    } else {
+      processHit(i+1);
+    }
+  }
+
+  processHit(0);
+}
+
+// Helper to process move effects for damaging moves
+function processMoveEffect(moveName, pokemon, isOpponent, totalDamage) {
+  var effect = getMoveEffect(moveName);
+  var attackerName = pokemon.name;
+  var targetName = isOpponent ? currentPlayerPokemon.name : currentOpponentPokemon.name;
+  var attackerStatus = isOpponent ? opponentStatus : playerStatus;
+  var targetStatus = isOpponent ? playerStatus : opponentStatus;
+  var attackerStatusTurns = isOpponent ? opponentStatusTurns : playerStatusTurns;
+  var targetStatusTurns = isOpponent ? playerStatusTurns : opponentStatusTurns;
+  var isMajorStatus = s => ["sleep","paralysis","poison","burn","freeze","toxic"].includes(s);
+
+  // Helper for inflicting status
+  function tryInflictStatus(status, chance = 1.0) {
+    if (!targetStatus.includes(status) && Math.random() < chance && canInflictMajorStatus(targetStatus)) {
+      targetStatus.push(status);
+      updateStatusDisplay();
+      addMessage(targetName + " was " + status + "ed!");
+      return true;
+    }
+    return false;
+  }
+
+  if (!effect || effect === "None") return;
+
+  // Status infliction (secondary effects)
+  if (effect.includes("May burn")) {
+    tryInflictStatus("burn", 0.1); // 10% chance
+  }
+  if (effect.includes("May paralyze")) {
+    tryInflictStatus("paralysis", 0.1);
+  }
+  if (effect.includes("May freeze")) {
+    tryInflictStatus("freeze", 0.1);
+  }
+  if (effect.includes("May confuse")) {
+    if (!targetStatus.includes("confusion") && Math.random() < 0.1) {
+      targetStatus.push("confusion");
+      targetStatusTurns["confusion"] = Math.floor(Math.random() * 4) + 2;
+      updateStatusDisplay();
+      addMessage(targetName + " became confused!");
+    }
+  }
+  if (effect.includes("May flinch")) {
+    if (Math.random() < 0.3) {
+      addMessage(targetName + " flinched and couldn't move!");
+      // Could implement flinch logic for next turn
+    }
+  }
+  if (effect.includes("May lower Special Defense")) {
+    if (Math.random() < 0.1) {
+      // No special defense stat, so skip or add message
+      addMessage(targetName + "'s Special Defense fell!");
+    }
+  }
+  if (effect.includes("May lower Speed")) {
+    if (Math.random() < 0.1) {
+      if (isOpponent) {
+        opSpeed = Math.max(0.5, opSpeed - 0.5);
+      } else {
+        userSpeed = Math.max(0.5, userSpeed - 0.5);
+      }
+      addMessage(targetName + "'s Speed fell!");
+    }
+  }
+  if (effect.includes("May lower Attack")) {
+    if (Math.random() < 0.1) {
+      if (isOpponent) {
+        opAttack = Math.max(0.5, opAttack - 0.5);
+      } else {
+        userAttack = Math.max(0.5, userAttack - 0.5);
+      }
+      addMessage(targetName + "'s Attack fell!");
+    }
+  }
+  if (effect.includes("May lower Defense")) {
+    if (Math.random() < 0.1) {
+      if (isOpponent) {
+        opDefense = Math.max(0.5, opDefense - 0.5);
+      } else {
+        userDefense = Math.max(0.5, userDefense - 0.5);
+      }
+      addMessage(targetName + "'s Defense fell!");
+    }
+  }
+  if (effect.includes("May damage adjacent Pokémon")) {
+    // Not implemented (single battle only)
+  }
+  if (effect.includes("May cause flinch")) {
+    if (Math.random() < 0.3) {
+      addMessage(targetName + " flinched and couldn't move!");
+      // Could implement flinch logic for next turn
+    }
+  }
+  if (effect.includes("User recovers half the damage dealt")) {
+    var heal = Math.floor(totalDamage / 2);
+    if (isOpponent) {
+      opHP = Math.min(opHP + heal, calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level));
+      updateHP('apHPBar', 'apHPCounter', opHP, calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level));
+      addMessage(attackerName + " regained health!");
+    } else {
+      userHP = Math.min(userHP + heal, calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level));
+      updateHP('myHPBar', 'myHPCounter', userHP, calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level));
+      addMessage(attackerName + " regained health!");
+    }
+  }
+  if (effect.includes("User takes recoil damage")) {
+    var recoil = Math.floor(totalDamage / 4);
+    if (isOpponent) {
+      opHP -= recoil;
+      if (opHP < 0) opHP = 0;
+      updateHP('apHPBar', 'apHPCounter', opHP, calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level));
+      addMessage(attackerName + " was hurt by recoil!");
+      if (opHP == 0) {
+        showOnlyFaintMessage(currentOpponentPokemon.name + " has fainted, Enemy lost!");
+        showResetButton();
+      }
+    } else {
+      userHP -= recoil;
+      if (userHP < 0) userHP = 0;
+      updateHP('myHPBar', 'myHPCounter', userHP, calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level));
+      addMessage(attackerName + " was hurt by recoil!");
+      if (userHP == 0) {
+        showOnlyFaintMessage(currentPlayerPokemon.name + " has fainted, You lost!");
+        showResetButton();
+      }
+    }
+  }
+  if (effect.includes("User becomes confused")) {
+    if (!attackerStatus.includes("confusion")) {
+      attackerStatus.push("confusion");
+      attackerStatusTurns["confusion"] = Math.floor(Math.random() * 4) + 2;
+      updateStatusDisplay();
+      addMessage(attackerName + " became confused!");
+    }
+  }
+  if (effect.includes("Always deals 20 damage")) {
+    // Already handled by move power in getMoveDamage
+  }
+  if (effect.includes("Always deals 40 damage")) {
+    // Already handled by move power in getMoveDamage
+  }
+  if (effect.includes("Never misses")) {
+    // Already handled by accuracy 0 = never miss
+  }
+  if (effect.includes("User must recharge")) {
+    // Not implemented: recharge turn
+    addMessage(attackerName + " must recharge next turn!");
+  }
+  if (effect.includes("User faints")) {
+    if (isOpponent) {
+      opHP = 0;
+      updateHP('apHPBar', 'apHPCounter', opHP, calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level));
+      showOnlyFaintMessage(currentOpponentPokemon.name + " has fainted, Enemy lost!");
+      showResetButton();
+    } else {
+      userHP = 0;
+      updateHP('myHPBar', 'myHPCounter', userHP, calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level));
+      showOnlyFaintMessage(currentPlayerPokemon.name + " has fainted, You lost!");
+      showResetButton();
+    }
+  }
+  if (effect.includes("Reduces opponent's HP to half")) {
+    if (isOpponent) {
+      userHP = Math.floor(userHP / 2);
+      updateHP('myHPBar', 'myHPCounter', userHP, calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level));
+      addMessage(targetName + "'s HP was halved!");
+      if (userHP == 0) {
+        showOnlyFaintMessage(currentPlayerPokemon.name + " has fainted, You lost!");
+        showResetButton();
+      }
+    } else {
+      opHP = Math.floor(opHP / 2);
+      updateHP('apHPBar', 'apHPCounter', opHP, calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level));
+      addMessage(targetName + "'s HP was halved!");
+      if (opHP == 0) {
+        showOnlyFaintMessage(currentOpponentPokemon.name + " has fainted, Enemy lost!");
+        showResetButton();
+      }
+    }
+  }
+  // Remove Whirlwind/Roar effect handling (no-op)
+  if (effect && effect.includes("Forces opponent to switch")) {
+    addMessage("But nothing happened!");
+    return;
   }
 }
 
 // Function to check if a move is a status move
 function isStatusMove(moveName) {
+  if (movesDatabase[moveName]) {
+    return movesDatabase[moveName].category === "Status";
+  }
+  // Fallback for moves not in database
   var statusMoves = [
     "Growl", "Growth", "Agility", "Defense Curl", "Leer", 
     "Sing", "Double Slap", "Fire Spin", "Sleep Powder", "String Shot", 
@@ -544,462 +856,282 @@ function isStatusMove(moveName) {
   return statusMoves.includes(moveName);
 }
 
-// Function to execute status moves
+// === Status Effect Helpers ===
+function canInflictMajorStatus(targetStatusArr) {
+  // Only one major status at a time (sleep, paralysis, poison, burn, freeze, toxic)
+  const majorStatuses = ["sleep", "paralysis", "poison", "burn", "freeze", "toxic"];
+  return !targetStatusArr.some(s => majorStatuses.includes(s));
+}
+
+// === Update executeStatusMove for all status moves ===
 function executeStatusMove(moveName, pokemon, isOpponent) {
   var attackerName = pokemon.name;
   var targetName = isOpponent ? currentPlayerPokemon.name : currentOpponentPokemon.name;
-  
-  switch(moveName) {
-    case "Growl":
-      if (isOpponent) {
-        userAttack = Math.max(0.5, userAttack - 1);
-        addMessage(attackerName + " used Growl!");
-        addMessage(targetName + "'s attack fell!");
-      } else {
-        opAttack = Math.max(0.5, opAttack - 1);
-        addMessage(attackerName + " used Growl!");
-        addMessage(targetName + "'s attack fell!");
-      }
-      break;
-      
-    case "Growth":
-      if (isOpponent) {
-        opAttack = Math.min(2, opAttack + 1);
-        addMessage(attackerName + " used Growth!");
-        addMessage(attackerName + "'s attack rose!");
-      } else {
-        userAttack = Math.min(2, userAttack + 1);
-        addMessage(attackerName + " used Growth!");
-        addMessage(attackerName + "'s attack rose!");
-      }
-      break;
-      
+  var attackerStatus = isOpponent ? opponentStatus : playerStatus;
+  var targetStatus = isOpponent ? playerStatus : opponentStatus;
+  var attackerStatusTurns = isOpponent ? opponentStatusTurns : playerStatusTurns;
+  var targetStatusTurns = isOpponent ? playerStatusTurns : opponentStatusTurns;
+  var isMajorStatus = s => ["sleep","paralysis","poison","burn","freeze","toxic"].includes(s);
 
-      
-    case "Agility":
-      if (isOpponent) {
-        opSpeed = Math.min(2, opSpeed + 0.5);
-        addMessage(attackerName + " used Agility!");
-        addMessage(attackerName + "'s speed rose!");
-      } else {
-        userSpeed = Math.min(2, userSpeed + 0.5);
-        addMessage(attackerName + " used Agility!");
-        addMessage(attackerName + "'s speed rose!");
+  addMessage(attackerName + " used " + moveName + "!");
+  processStatusMoveEffect(moveName, pokemon, isOpponent);
+}
+
+// Helper to process status move effects
+function processStatusMoveEffect(moveName, pokemon, isOpponent) {
+  var effect = getMoveEffect(moveName);
+  var attackerName = pokemon.name;
+  var targetName = isOpponent ? currentPlayerPokemon.name : currentOpponentPokemon.name;
+  var attackerStatus = isOpponent ? opponentStatus : playerStatus;
+  var targetStatus = isOpponent ? playerStatus : opponentStatus;
+  var attackerStatusTurns = isOpponent ? opponentStatusTurns : playerStatusTurns;
+  var targetStatusTurns = isOpponent ? playerStatusTurns : opponentStatusTurns;
+
+  // Helper for inflicting status
+  function tryInflictStatus(status, turns = undefined) {
+    if (!targetStatus.includes(status) && canInflictMajorStatus(targetStatus)) {
+      targetStatus.push(status);
+      if (turns) targetStatusTurns[status] = turns;
+      updateStatusDisplay();
+      addMessage(targetName + " was " + status + (status === "sleep" ? "!" : "ed!"));
+      return true;
+    }
+    addMessage(attackerName + "'s move had no effect!");
+    return false;
+  }
+
+  if (!effect || effect === "None") return;
+
+  // Status infliction
+  if (effect.includes("Paralyzes opponent")) {
+    tryInflictStatus("paralysis");
+    return;
+  }
+  if (effect.includes("Poisons opponent")) {
+    tryInflictStatus("poison");
+    return;
+  }
+  if (effect.includes("Badly poisons opponent")) {
+    if (!targetStatus.includes("toxic") && canInflictMajorStatus(targetStatus)) {
+      targetStatus.push("toxic");
+      targetStatusTurns["toxicCounter"] = 1;
+      updateStatusDisplay();
+      addMessage(targetName + " was badly poisoned!");
+    } else {
+      addMessage(attackerName + "'s move had no effect!");
+    }
+    return;
+  }
+  if (effect.includes("Puts opponent to sleep")) {
+    var turns = Math.floor(Math.random() * 3) + 2;
+    tryInflictStatus("sleep", turns);
+    return;
+  }
+  if (effect.includes("Confuses opponent")) {
+    if (!targetStatus.includes("confusion")) {
+      targetStatus.push("confusion");
+      targetStatusTurns["confusion"] = Math.floor(Math.random() * 4) + 2;
+      updateStatusDisplay();
+      addMessage(targetName + " became confused!");
+    } else {
+      addMessage(attackerName + "'s move had no effect!");
+    }
+    return;
+  }
+  if (effect.includes("Raises Attack by 2 stages")) {
+    if (isOpponent) {
+      opAttack += 1;
+    } else {
+      userAttack += 1;
+    }
+    addMessage(attackerName + "'s Attack rose sharply!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Raises Attack by 1 stage")) {
+    if (isOpponent) {
+      opAttack += 0.5;
+    } else {
+      userAttack += 0.5;
+    }
+    addMessage(attackerName + "'s Attack rose!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Raises Defense by 2 stages")) {
+    if (isOpponent) {
+      opDefense += 1;
+    } else {
+      userDefense += 1;
+    }
+    addMessage(attackerName + "'s Defense rose sharply!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Raises Defense by 1 stage")) {
+    if (isOpponent) {
+      opDefense += 0.5;
+    } else {
+      userDefense += 0.5;
+    }
+    addMessage(attackerName + "'s Defense rose!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Lowers Defense by 1 stage")) {
+    if (isOpponent) {
+      userDefense = Math.max(0.5, userDefense - 0.5);
+    } else {
+      opDefense = Math.max(0.5, opDefense - 0.5);
+    }
+    addMessage(targetName + "'s Defense fell!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Lowers Attack by 1 stage")) {
+    if (isOpponent) {
+      userAttack = Math.max(0.5, userAttack - 0.5);
+    } else {
+      opAttack = Math.max(0.5, opAttack - 0.5);
+    }
+    addMessage(targetName + "'s Attack fell!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Raises Speed by 2 stages")) {
+    if (isOpponent) {
+      opSpeed += 1;
+    } else {
+      userSpeed += 1;
+    }
+    addMessage(attackerName + "'s Speed rose sharply!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Raises Speed by 1 stage")) {
+    if (isOpponent) {
+      opSpeed += 0.5;
+    } else {
+      userSpeed += 0.5;
+    }
+    addMessage(attackerName + "'s Speed rose!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Lowers Speed by 2 stages")) {
+    if (isOpponent) {
+      userSpeed = Math.max(0.5, userSpeed - 1);
+    } else {
+      opSpeed = Math.max(0.5, opSpeed - 1);
+    }
+    addMessage(targetName + "'s Speed harshly fell!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Lowers Speed by 1 stage")) {
+    if (isOpponent) {
+      userSpeed = Math.max(0.5, userSpeed - 0.5);
+    } else {
+      opSpeed = Math.max(0.5, opSpeed - 0.5);
+    }
+    addMessage(targetName + "'s Speed fell!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Lowers accuracy by 1 stage")) {
+    if (isOpponent) {
+      userAccuracy = Math.max(0.5, userAccuracy - 0.5);
+    } else {
+      opAccuracy = Math.max(0.5, opAccuracy - 0.5);
+    }
+    addMessage(targetName + "'s accuracy fell!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Raises evasion by 1 stage")) {
+    // Not implemented: evasion stat
+    addMessage(attackerName + "'s evasion rose!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Raises evasion by 2 stages")) {
+    // Not implemented: evasion stat
+    addMessage(attackerName + "'s evasion rose sharply!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Restores half max HP")) {
+    var maxHP = isOpponent ? calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level) : calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level);
+    if (isOpponent) {
+      opHP = Math.min(opHP + Math.floor(maxHP / 2), maxHP);
+      updateHP('apHPBar', 'apHPCounter', opHP, maxHP);
+      addMessage(attackerName + " regained health!");
+    } else {
+      userHP = Math.min(userHP + Math.floor(maxHP / 2), maxHP);
+      updateHP('myHPBar', 'myHPCounter', userHP, maxHP);
+      addMessage(attackerName + " regained health!");
+    }
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("User sleeps for 2 turns and fully recovers")) {
+    var maxHP = isOpponent ? calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level) : calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level);
+    if (isOpponent) {
+      opHP = maxHP;
+      updateHP('apHPBar', 'apHPCounter', opHP, maxHP);
+      if (!attackerStatus.includes("sleep")) {
+        attackerStatus.push("sleep");
+        attackerStatusTurns["sleep"] = 2;
       }
-      break;
-      
-    case "Defense Curl":
-      if (isOpponent) {
-        opDefense = Math.min(2, opDefense + 0.5);
-        addMessage(attackerName + " used Defense Curl!");
-        addMessage(attackerName + "'s defense rose!");
-      } else {
-        userDefense = Math.min(2, userDefense + 0.5);
-        addMessage(attackerName + " used Defense Curl!");
-        addMessage(attackerName + "'s defense rose!");
+      addMessage(attackerName + " fell asleep and fully recovered!");
+    } else {
+      userHP = maxHP;
+      updateHP('myHPBar', 'myHPCounter', userHP, maxHP);
+      if (!attackerStatus.includes("sleep")) {
+        attackerStatus.push("sleep");
+        attackerStatusTurns["sleep"] = 2;
       }
-      break;
-      
-    case "Leer":
-      if (isOpponent) {
-        // Lower player's defense (represented as attack reduction for simplicity)
-        userAttack = Math.max(0.5, userAttack - 0.5);
-        addMessage(attackerName + " used Leer!");
-        addMessage(targetName + " became less confident!");
-      } else {
-        opAttack = Math.max(0.5, opAttack - 0.5);
-        addMessage(attackerName + " used Leer!");
-        addMessage(targetName + " became less confident!");
-      }
-      break;
-      
-    case "Sing":
-      if (isOpponent) {
-        if (!playerStatus.includes("sleep")) {
-          playerStatus.push("sleep");
-          playerStatusTurns["sleep"] = Math.floor(Math.random() * 3) + 2;
-          updateStatusDisplay();
-          addMessage(attackerName + " used Sing!");
-          addMessage(targetName + " fell asleep!");
-        } else {
-          addMessage(attackerName + " used Sing! But it had no effect!");
-        }
-      } else {
-        if (!opponentStatus.includes("sleep")) {
-          opponentStatus.push("sleep");
-          opponentStatusTurns["sleep"] = Math.floor(Math.random() * 3) + 2;
-          updateStatusDisplay();
-          addMessage(attackerName + " used Sing!");
-          addMessage(targetName + " fell asleep!");
-        } else {
-          addMessage(attackerName + " used Sing! But it had no effect!");
-        }
-      }
-      break;
-      
-    case "Sleep Powder":
-      if (isOpponent) {
-        if (!playerStatus.includes("sleep")) {
-          playerStatus.push("sleep");
-          playerStatusTurns["sleep"] = Math.floor(Math.random() * 3) + 2;
-          updateStatusDisplay();
-          addMessage(attackerName + " used Sleep Powder!");
-          addMessage(targetName + " fell asleep!");
-        } else {
-          addMessage(attackerName + " used Sleep Powder! But it had no effect!");
-        }
-      } else {
-        if (!opponentStatus.includes("sleep")) {
-          opponentStatus.push("sleep");
-          opponentStatusTurns["sleep"] = Math.floor(Math.random() * 3) + 2;
-          updateStatusDisplay();
-          addMessage(attackerName + " used Sleep Powder!");
-          addMessage(targetName + " fell asleep!");
-        } else {
-          addMessage(attackerName + " used Sleep Powder! But it had no effect!");
-        }
-      }
-      break;
-      
-    case "Spore":
-      if (isOpponent) {
-        if (!playerStatus.includes("sleep")) {
-          playerStatus.push("sleep");
-          playerStatusTurns["sleep"] = Math.floor(Math.random() * 3) + 2;
-          updateStatusDisplay();
-          addMessage(attackerName + " used Spore!");
-          addMessage(targetName + " fell asleep!");
-        } else {
-          addMessage(attackerName + " used Spore! But it had no effect!");
-        }
-      } else {
-        if (!opponentStatus.includes("sleep")) {
-          opponentStatus.push("sleep");
-          opponentStatusTurns["sleep"] = Math.floor(Math.random() * 3) + 2;
-          updateStatusDisplay();
-          addMessage(attackerName + " used Spore!");
-          addMessage(targetName + " fell asleep!");
-        } else {
-          addMessage(attackerName + " used Spore! But it had no effect!");
-        }
-      }
-      break;
-      
-    case "Thunder Wave":
-      if (isOpponent) {
-        if (!playerStatus.includes("paralysis")) {
-          playerStatus.push("paralysis");
-          updateStatusDisplay();
-          addMessage(attackerName + " used Thunder Wave!");
-          addMessage(targetName + " was paralyzed!");
-        } else {
-          addMessage(attackerName + " used Thunder Wave! But it had no effect!");
-        }
-      } else {
-        if (!opponentStatus.includes("paralysis")) {
-          opponentStatus.push("paralysis");
-          updateStatusDisplay();
-          addMessage(attackerName + " used Thunder Wave!");
-          addMessage(targetName + " was paralyzed!");
-        } else {
-          addMessage(attackerName + " used Thunder Wave! But it had no effect!");
-        }
-      }
-      break;
-      
-    case "Poison Powder":
-      if (isOpponent) {
-        if (!playerStatus.includes("poison")) {
-          playerStatus.push("poison");
-          updateStatusDisplay();
-          addMessage(attackerName + " used Poison Powder!");
-          addMessage(targetName + " was poisoned!");
-        } else {
-          addMessage(attackerName + " used Poison Powder! But it had no effect!");
-        }
-      } else {
-        if (!opponentStatus.includes("poison")) {
-          opponentStatus.push("poison");
-          updateStatusDisplay();
-          addMessage(attackerName + " used Poison Powder!");
-          addMessage(targetName + " was poisoned!");
-        } else {
-          addMessage(attackerName + " used Poison Powder! But it had no effect!");
-        }
-      }
-      break;
-      
-    case "Supersonic":
-      if (isOpponent) {
-        if (!playerStatus.includes("confusion")) {
-          playerStatus.push("confusion");
-          playerStatusTurns["confusion"] = Math.floor(Math.random() * 4) + 2; // 2-5 turns
-          updateStatusDisplay();
-          addMessage(attackerName + " used Supersonic!");
-          addMessage(targetName + " became confused!");
-        } else {
-          addMessage(attackerName + " used Supersonic! But it had no effect!");
-        }
-      } else {
-        if (!opponentStatus.includes("confusion")) {
-          opponentStatus.push("confusion");
-          opponentStatusTurns["confusion"] = Math.floor(Math.random() * 4) + 2; // 2-5 turns
-          updateStatusDisplay();
-          addMessage(attackerName + " used Supersonic!");
-          addMessage(targetName + " became confused!");
-        } else {
-          addMessage(attackerName + " used Supersonic! But it had no effect!");
-        }
-      }
-      break;
-      
-    case "Hypnosis":
-      if (isOpponent) {
-        if (!playerStatus.includes("sleep")) {
-          playerStatus.push("sleep");
-          playerStatusTurns["sleep"] = Math.floor(Math.random() * 3) + 2; // 2-4 turns
-          updateStatusDisplay();
-          addMessage(attackerName + " used Hypnosis!");
-          addMessage(targetName + " fell asleep!");
-        } else {
-          addMessage(attackerName + " used Hypnosis! But it had no effect!");
-        }
-      } else {
-        if (!opponentStatus.includes("sleep")) {
-          opponentStatus.push("sleep");
-          opponentStatusTurns["sleep"] = Math.floor(Math.random() * 3) + 2; // 2-4 turns
-          updateStatusDisplay();
-          addMessage(attackerName + " used Hypnosis!");
-          addMessage(targetName + " fell asleep!");
-        } else {
-          addMessage(attackerName + " used Hypnosis! But it had no effect!");
-        }
-      }
-      break;
-      
-    case "Calm Mind":
-      if (isOpponent) {
-        opAttack = Math.min(2, opAttack + 0.5);
-        addMessage(attackerName + " used Calm Mind!");
-        addMessage(attackerName + " became more focused!");
-      } else {
-        userAttack = Math.min(2, userAttack + 0.5);
-        addMessage(attackerName + " used Calm Mind!");
-        addMessage(attackerName + " became more focused!");
-      }
-      break;
-      
-    case "Sand Attack":
-      if (isOpponent) {
-        userAccuracy = Math.max(0.5, userAccuracy - 0.3);
-        addMessage(attackerName + " used Sand Attack!");
-        addMessage(targetName + "'s accuracy fell!");
-      } else {
-        opAccuracy = Math.max(0.5, opAccuracy - 0.3);
-        addMessage(attackerName + " used Sand Attack!");
-        addMessage(targetName + "'s accuracy fell!");
-      }
-      break;
-      
-    case "Tail Whip":
-      if (isOpponent) {
-        userDefense = Math.max(0.5, userDefense - 0.3);
-        addMessage(attackerName + " used Tail Whip!");
-        addMessage(targetName + "'s defense fell!");
-      } else {
-        opDefense = Math.max(0.5, opDefense - 0.3);
-        addMessage(attackerName + " used Tail Whip!");
-        addMessage(targetName + "'s defense fell!");
-      }
-      break;
-      
-    case "Kinesis":
-      if (isOpponent) {
-        userAccuracy = Math.max(0.5, userAccuracy - 0.3);
-        addMessage(attackerName + " used Kinesis!");
-        addMessage(targetName + "'s accuracy fell!");
-      } else {
-        opAccuracy = Math.max(0.5, opAccuracy - 0.3);
-        addMessage(attackerName + " used Kinesis!");
-        addMessage(targetName + "'s accuracy fell!");
-      }
-      break;
-      
-    case "String Shot":
-      if (isOpponent) {
-        userSpeed = Math.max(0.5, userSpeed - 0.3);
-        addMessage(attackerName + " used String Shot!");
-        addMessage(targetName + "'s speed fell!");
-      } else {
-        opSpeed = Math.max(0.5, opSpeed - 0.3);
-        addMessage(attackerName + " used String Shot!");
-        addMessage(targetName + "'s speed fell!");
-      }
-      break;
-      
-    case "Scary Face":
-      if (isOpponent) {
-        userSpeed = Math.max(0.5, userSpeed - 0.3);
-        addMessage(attackerName + " used Scary Face!");
-        addMessage(targetName + "'s speed fell!");
-      } else {
-        opSpeed = Math.max(0.5, opSpeed - 0.3);
-        addMessage(attackerName + " used Scary Face!");
-        addMessage(targetName + "'s speed fell!");
-      }
-      break;
-      
-    case "Glare":
-      if (isOpponent) {
-        if (!playerStatus.includes("paralysis")) {
-          playerStatus.push("paralysis");
-          updateStatusDisplay();
-          addMessage(attackerName + " used Glare!");
-          addMessage(targetName + " was paralyzed!");
-        } else {
-          addMessage(attackerName + " used Glare! But it had no effect!");
-        }
-      } else {
-        if (!opponentStatus.includes("paralysis")) {
-          opponentStatus.push("paralysis");
-          updateStatusDisplay();
-          addMessage(attackerName + " used Glare!");
-          addMessage(targetName + " was paralyzed!");
-        } else {
-          addMessage(attackerName + " used Glare! But it had no effect!");
-        }
-      }
-      break;
-      
-    case "Fire Spin":
-      // Fire Spin does damage and has a chance to cause burn (simplified as damage over time)
-      var baseDmg = 20 * (isOpponent ? opAttack : userAttack);
-      if (isOpponent) {
-        userHP -= baseDmg;
-        if(userHP < 0) userHP = 0;
-        updateHP('myHPBar', 'myHPCounter', userHP, calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level));
-        if(userHP == 0) {
-          showOnlyFaintMessage(currentPlayerPokemon.name + " has fainted, You lost!");
-          showResetButton();
-          return;
-        }
-      } else {
-        opHP -= baseDmg;
-        if(opHP < 0) opHP = 0;
-        updateHP('apHPBar', 'apHPCounter', opHP, calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level));
-        if(opHP == 0) {
-          showOnlyFaintMessage(currentOpponentPokemon.name + " has fainted, Enemy lost!");
-          showResetButton();
-          return;
-        }
-      }
-      addMessage(attackerName + " used Fire Spin!");
-      addMessage(targetName + " was trapped in a vortex!");
-      break;
-      
-    case "Double Slap":
-      // This is actually a damage move, not status
-      var baseDmg = 15 * (isOpponent ? opAttack : userAttack);
-      if (isOpponent) {
-        userHP -= baseDmg;
-        if(userHP < 0) userHP = 0;
-        updateHP('myHPBar', 'myHPCounter', userHP, calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level));
-        if(userHP == 0) {
-          showOnlyFaintMessage(currentPlayerPokemon.name + " has fainted, You lost!");
-          showResetButton();
-          return;
-        }
-      } else {
-        opHP -= baseDmg;
-        if(opHP < 0) opHP = 0;
-        updateHP('apHPBar', 'apHPCounter', opHP, calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level));
-        if(opHP == 0) {
-          showOnlyFaintMessage(currentOpponentPokemon.name + " has fainted, Enemy lost!");
-          showResetButton();
-          return;
-        }
-      }
-      document.getElementById('message').innerHTML = attackerName + " used " + moveName;
-      break;
-      
-    case "Thrash":
-      // This is actually a damage move, not status
-      var baseDmg = 35 * (isOpponent ? opAttack : userAttack);
-      if (isOpponent) {
-        userHP -= baseDmg;
-        if(userHP < 0) userHP = 0;
-        updateHP('myHPBar', 'myHPCounter', userHP, calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level));
-        if(userHP == 0) {
-          showOnlyFaintMessage(currentPlayerPokemon.name + " has fainted, You lost!");
-          showResetButton();
-          return;
-        }
-      } else {
-        opHP -= baseDmg;
-        if(opHP < 0) opHP = 0;
-        updateHP('apHPBar', 'apHPCounter', opHP, calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level));
-        if(opHP == 0) {
-          showOnlyFaintMessage(currentOpponentPokemon.name + " has fainted, Enemy lost!");
-          showResetButton();
-          return;
-        }
-      }
-      document.getElementById('message').innerHTML = attackerName + " used " + moveName;
-      break;
-      
-    case "Petal Dance":
-      // This is actually a damage move, not status
-      var baseDmg = 30 * (isOpponent ? opAttack : userAttack);
-      if (isOpponent) {
-        userHP -= baseDmg;
-        if(userHP < 0) userHP = 0;
-        updateHP('myHPBar', 'myHPCounter', userHP, calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level));
-        if(userHP == 0) {
-          showOnlyFaintMessage(currentPlayerPokemon.name + " has fainted, You lost!");
-          showResetButton();
-          return;
-        }
-      } else {
-        opHP -= baseDmg;
-        if(opHP < 0) opHP = 0;
-        updateHP('apHPBar', 'apHPCounter', opHP, calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level));
-        if(opHP == 0) {
-          showOnlyFaintMessage(currentOpponentPokemon.name + " has fainted, Enemy lost!");
-          showResetButton();
-          return;
-        }
-      }
-      document.getElementById('message').innerHTML = attackerName + " used " + moveName;
-      break;
-      
-    case "Confusion":
-      // This is actually a damage move, not status
-      var baseDmg = 25 * (isOpponent ? opAttack : userAttack);
-      if (isOpponent) {
-        userHP -= baseDmg;
-        if(userHP < 0) userHP = 0;
-        updateHP('myHPBar', 'myHPCounter', userHP, calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level));
-        if(userHP == 0) {
-          showOnlyFaintMessage(currentPlayerPokemon.name + " has fainted, You lost!");
-          showResetButton();
-          return;
-        }
-      } else {
-        opHP -= baseDmg;
-        if(opHP < 0) opHP = 0;
-        updateHP('apHPBar', 'apHPCounter', opHP, calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level));
-        if(opHP == 0) {
-          showOnlyFaintMessage(currentOpponentPokemon.name + " has fainted, Enemy lost!");
-          showResetButton();
-          return;
-        }
-      }
-      document.getElementById('message').innerHTML = attackerName + " used " + moveName;
-      break;
-      
-    default:
-      document.getElementById('message').innerHTML = attackerName + " used " + moveName + "!";
-      break;
+      addMessage(attackerName + " fell asleep and fully recovered!");
+    }
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Does nothing")) {
+    addMessage("But nothing happened!");
+    return;
+  }
+  // Add more effect parsing as needed
+  // In processStatusMoveEffect, add special handling for Growth
+  if (moveName === "Growth") {
+    if (isOpponent) {
+      opAttack += 0.5;
+      opDefense += 0.5;
+    } else {
+      userAttack += 0.5;
+      userDefense += 0.5;
+    }
+    addMessage(attackerName + "'s Attack and Defense rose!");
+    updateStatusDisplay();
+    return;
+  }
+  if (effect.includes("Disables last used move")) {
+    // Only disable if target has used a move
+    var lastMove = isOpponent ? playerLastMove : opponentLastMove;
+    if (!lastMove) {
+      addMessage(attackerName + " tried to disable, but it failed!");
+      return;
+    }
+    var turns = Math.floor(Math.random() * 3) + 3; // 3-5 turns
+    if (isOpponent) {
+      playerDisabledMove = lastMove;
+      playerDisabledTurns = turns;
+      addMessage(targetName + "'s " + lastMove + " was disabled!");
+    } else {
+      opponentDisabledMove = lastMove;
+      opponentDisabledTurns = turns;
+      addMessage(targetName + "'s " + lastMove + " was disabled!");
+    }
+    return;
   }
 }
 
@@ -1007,11 +1139,12 @@ function executeStatusMove(moveName, pokemon, isOpponent) {
 function checkStatusEffects(isOpponent) {
   var statusArr = isOpponent ? opponentStatus : playerStatus;
   var statusTurns = isOpponent ? opponentStatusTurns : playerStatusTurns;
+  var toxicCounter = isOpponent ? (opponentStatusTurns["toxicCounter"] || 1) : (playerStatusTurns["toxicCounter"] || 1);
   var pokemonName = isOpponent ? currentOpponentPokemon.name : currentPlayerPokemon.name;
   var canMove = true;
   let toRemove = [];
   for (let status of statusArr) {
-    switch(status) {
+    switch (status) {
       case "sleep":
         if (statusTurns[status] > 0) {
           statusTurns[status]--;
@@ -1030,9 +1163,9 @@ function checkStatusEffects(isOpponent) {
         break;
       case "poison":
         var maxHP = isOpponent ? calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level) : calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level);
-        var poisonDamage = Math.floor(maxHP / 16);
+        var poisonDamage = Math.floor(maxHP / 8); // Gen 5/6: 1/8
         if (isOpponent) {
-          opHP -= poisonDamage;
+          opHP -= poisonDamage * 0.5;
           if (opHP < 0) opHP = 0;
           updateHP('apHPBar', 'apHPCounter', opHP, maxHP);
           if (opHP == 0) {
@@ -1041,7 +1174,7 @@ function checkStatusEffects(isOpponent) {
             return false;
           }
         } else {
-          userHP -= poisonDamage;
+          userHP -= poisonDamage * 0.5;
           if (userHP < 0) userHP = 0;
           updateHP('myHPBar', 'myHPCounter', userHP, maxHP);
           if (userHP == 0) {
@@ -1052,15 +1185,73 @@ function checkStatusEffects(isOpponent) {
         }
         addMessage(pokemonName + " is hurt by poison!");
         break;
+      case "toxic":
+        var maxHP = isOpponent ? calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level) : calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level);
+        var toxicDmg = Math.floor(maxHP / 16) * toxicCounter;
+        if (isOpponent) {
+          opHP -= toxicDmg * 0.5;
+          if (opHP < 0) opHP = 0;
+          updateHP('apHPBar', 'apHPCounter', opHP, maxHP);
+          if (opHP == 0) {
+            showOnlyFaintMessage(currentOpponentPokemon.name + " has fainted, Enemy lost!");
+            showResetButton();
+            return false;
+          }
+          opponentStatusTurns["toxicCounter"] = toxicCounter + 1;
+        } else {
+          userHP -= toxicDmg * 0.5;
+          if (userHP < 0) userHP = 0;
+          updateHP('myHPBar', 'myHPCounter', userHP, maxHP);
+          if (userHP == 0) {
+            showOnlyFaintMessage(currentPlayerPokemon.name + " has fainted, You lost!");
+            showResetButton();
+            return false;
+          }
+          playerStatusTurns["toxicCounter"] = toxicCounter + 1;
+        }
+        addMessage(pokemonName + " is hurt by poison!");
+        break;
+      case "burn":
+        var maxHP = isOpponent ? calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level) : calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level);
+        var burnDamage = Math.floor(maxHP / 8); // Gen 5/6: 1/8
+        if (isOpponent) {
+          opHP -= burnDamage * 0.5;
+          if (opHP < 0) opHP = 0;
+          updateHP('apHPBar', 'apHPCounter', opHP, maxHP);
+          if (opHP == 0) {
+            showOnlyFaintMessage(currentOpponentPokemon.name + " has fainted, Enemy lost!");
+            showResetButton();
+            return false;
+          }
+        } else {
+          userHP -= burnDamage * 0.5;
+          if (userHP < 0) userHP = 0;
+          updateHP('myHPBar', 'myHPCounter', userHP, maxHP);
+          if (userHP == 0) {
+            showOnlyFaintMessage(currentPlayerPokemon.name + " has fainted, You lost!");
+            showResetButton();
+            return false;
+          }
+        }
+        addMessage(pokemonName + " is hurt by its burn!");
+        break;
+      case "freeze":
+        if (Math.random() < 0.2) {
+          toRemove.push(status);
+          addMessage(pokemonName + " thawed out!");
+        } else {
+          addMessage(pokemonName + " is frozen solid!");
+          canMove = false;
+        }
+        break;
       case "confusion":
         if (statusTurns[status] > 0) {
           statusTurns[status]--;
-          // 33% chance to hurt itself in confusion
           if (Math.random() < 0.33) {
             var confusionDamage = 20 * (isOpponent ? opAttack : userAttack);
             addMessage(pokemonName + " is confused! It hurt itself in its confusion!");
             if (isOpponent) {
-              opHP -= confusionDamage;
+              opHP -= confusionDamage * 0.5;
               if (opHP < 0) opHP = 0;
               updateHP('apHPBar', 'apHPCounter', opHP, calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level));
               if (opHP == 0) {
@@ -1069,7 +1260,7 @@ function checkStatusEffects(isOpponent) {
                 return false;
               }
             } else {
-              userHP -= confusionDamage;
+              userHP -= confusionDamage * 0.5;
               if (userHP < 0) userHP = 0;
               updateHP('myHPBar', 'myHPCounter', userHP, calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level));
               if (userHP == 0) {
@@ -1094,29 +1285,123 @@ function checkStatusEffects(isOpponent) {
     let idx = arr.indexOf(status);
     if (idx !== -1) arr.splice(idx, 1);
     delete turns[status];
+    if (status === "toxic") delete turns["toxicCounter"];
   }
   updateStatusDisplay();
   return canMove;
 }
 
-// Function to get move damage (increase damage for faster battles)
+// Function to get move damage from the comprehensive moves database
 function getMoveDamage(moveName) {
-  var moveDamages = {
-    "Water Cannon": 40, "Water Pulse": 28, "Surf": 18, "Tackle": 10,
-    "Flame Thrower": 40, "Dragon Claw": 28, "Ember": 18,
-    "Vine Whip": 32, "Razor Leaf": 28, "Seed Bomb": 22,
-    "Fire Fang": 32, "Flame Burst": 28, "Water Gun": 32, "Bubble": 22,
-    "Aqua Jet": 28, "Thunder Shock": 32, "Quick Attack": 28,
-    "Thunderbolt": 40, "Bite": 28, "Psychic": 45,
-    "Shadow Ball": 40, "Aura Sphere": 32, "Dragon Rush": 45,
-    "Hyper Beam": 50, "Scratch": 22, "Slash": 32, "Poison Sting": 28, "Horn Attack": 32,
-    "Body Slam": 40, "Pound": 28, "Gust": 28,
-    "Fury Attack": 28, "Twineedle": 32, "Wing Attack": 32, "Hyper Fang": 40, "Peck": 22,
-    "Drill Peck": 40, "Acid": 28, "Karate Chop": 32,
-    "Low Kick": 28, "Seismic Toss": 32, "Psybeam": 40, "Rock Throw": 28,
-    "Rock Slide": 40, "Solar Beam": 50
-  };
-  return moveDamages[moveName] || 22;
+  if (movesDatabase[moveName]) {
+    return movesDatabase[moveName].power;
+  }
+  // Fallback for any moves not in the database
+  return 40;
+}
+
+// Function to get move accuracy
+function getMoveAccuracy(moveName) {
+  if (movesDatabase[moveName]) {
+    return Math.max(movesDatabase[moveName].accuracy, 70);
+  }
+  return 100; // Default accuracy
+}
+
+// Function to get move type
+function getMoveType(moveName) {
+  if (movesDatabase[moveName]) {
+    return movesDatabase[moveName].type;
+  }
+  return "Normal"; // Default type
+}
+
+// Function to get move category
+function getMoveCategory(moveName) {
+  if (movesDatabase[moveName]) {
+    return movesDatabase[moveName].category;
+  }
+  return "Physical"; // Default category
+}
+
+// Function to get move effect
+function getMoveEffect(moveName) {
+  if (movesDatabase[moveName]) {
+    return movesDatabase[moveName].effect;
+  }
+  return "None"; // Default effect
+}
+
+// Function to get moves by type
+function getMovesByType(type) {
+  var moves = [];
+  for (var moveName in movesDatabase) {
+    if (movesDatabase[moveName].type === type) {
+      moves.push(moveName);
+    }
+  }
+  return moves;
+}
+
+// Function to get moves by category
+function getMovesByCategory(category) {
+  var moves = [];
+  for (var moveName in movesDatabase) {
+    if (movesDatabase[moveName].category === category) {
+      moves.push(moveName);
+    }
+  }
+  return moves;
+}
+
+// Function to assign appropriate moves to a Pokemon based on its type
+function assignMovesToPokemon(pokemon) {
+  var moves = [];
+  var pokemonType = pokemon.type;
+
+  // Get type-specific moves
+  var typeMoves = getMovesByType(pokemonType.split('/')[0]); // Use primary type
+  if (pokemonType.includes('/')) {
+    var secondaryTypeMoves = getMovesByType(pokemonType.split('/')[1]);
+    typeMoves = typeMoves.concat(secondaryTypeMoves);
+  }
+
+  // Add some normal moves for variety
+  var normalMoves = getMovesByType("Normal");
+
+  // Combine and shuffle
+  var allMoves = typeMoves.concat(normalMoves);
+  allMoves = allMoves.sort(() => Math.random() - 0.5);
+
+  // Only keep moves that exist in movesDatabase
+  allMoves = allMoves.filter(m => movesDatabase[m]);
+
+  // Select 4 unique moves
+  for (var i = 0; i < allMoves.length && moves.length < 4; i++) {
+    if (!moves.includes(allMoves[i])) {
+      moves.push(allMoves[i]);
+    }
+  }
+
+  // If we don't have enough moves, add some generic ones
+  var genericMoves = ["Tackle", "Scratch", "Pound", "Growl"];
+  for (var j = 0; j < genericMoves.length && moves.length < 4; j++) {
+    if (!moves.includes(genericMoves[j]) && movesDatabase[genericMoves[j]]) {
+      moves.push(genericMoves[j]);
+    }
+  }
+
+  // As a last resort, fill with any available move
+  if (moves.length < 4) {
+    for (var moveName in movesDatabase) {
+      if (!moves.includes(moveName)) {
+        moves.push(moveName);
+        if (moves.length === 4) break;
+      }
+    }
+  }
+
+  return moves.slice(0, 4);
 }
 
 // Function to check cheat code
@@ -1149,7 +1434,7 @@ function checkCheatCode(key) {
       explosion.style.display = 'flex';
       
       // Hide explosion after animation completes
-      setTimeout(function() {
+      setTimeout(function () {
         explosion.style.display = 'none';
       }, 2000);
       
@@ -1160,8 +1445,17 @@ function checkCheatCode(key) {
 }
 
 // Add event listener for key presses
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
   checkCheatCode(event.code);
+});
+
+// Initialize the game when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+  // Start the background animation
+  squaresBackground();
+
+  // Initialize the first battle
+  initializeBattle();
 });
 
 // Function to update HP bars
@@ -1261,25 +1555,25 @@ function setMessage(message, isFaint = false) {
 
 // When a move is selected, immediately disable move buttons
 function move1() {
-  if(userHP != 0 && !isDisplayingMessage && !document.getElementById('move1').disabled) {
+  if (userHP != 0 && !isDisplayingMessage && !document.getElementById('move1').disabled) {
     setMoveButtonsEnabled(false);
     executeTurn(0);
   }
 }
 function move2() {
-  if(userHP != 0 && !isDisplayingMessage && !document.getElementById('move2').disabled) {
+  if (userHP != 0 && !isDisplayingMessage && !document.getElementById('move2').disabled) {
     setMoveButtonsEnabled(false);
     executeTurn(1);
   }
 }
 function move3() {
-  if(userHP != 0 && !isDisplayingMessage && !document.getElementById('move3').disabled) {
+  if (userHP != 0 && !isDisplayingMessage && !document.getElementById('move3').disabled) {
     setMoveButtonsEnabled(false);
     executeTurn(2);
   }
 }
 function move4() {
-  if(userHP != 0 && !isDisplayingMessage && !document.getElementById('move4').disabled) {
+  if (userHP != 0 && !isDisplayingMessage && !document.getElementById('move4').disabled) {
     setMoveButtonsEnabled(false);
     executeTurn(3);
   }
@@ -1290,78 +1584,78 @@ function move4() {
 /* opponent's moves */
 
 function flameThrower() {
-  var miss = Math.floor((Math.random() * 10) + 1); // miss rate
-  if(miss == 1 ) {
-  document.getElementById('message').innerHTML = " Charizard's attack missed! " // attack missed
+  var miss = Math.floor((Math.random() * 20) + 1); // miss rate
+  if (miss == 1) {
+    addMessage(" Charizard's attack missed! "); // attack missed
   }
   else {
-  document.getElementById('message').innerHTML = " Charizard used flame thrower " // attack
+    addMessage(" Charizard used flame thrower "); // attack
     var critical = Math.floor((Math.random() * 10) + 1); // critical
     var baseDmg = 30 * opAttack;
-      if(critical == 4){
-        for(var x = 0; x < 2; x++){ // yes critical
-          userHP = userHP - baseDmg;
+    if (critical == 4) {
+      for (var x = 0; x < 2; x++) { // yes critical
+        userHP = userHP - baseDmg * 0.5;
         }
       }
-      else{
-        userHP = userHP - baseDmg; // no critical
+    else {
+      userHP = userHP - baseDmg * 0.5; // no critical
       }
-  if(userHP < 0) { userHP = 0} // faint
+    if (userHP < 0) { userHP = 0 } // faint
   updateHP('myHPBar', 'myHPCounter', userHP, 160); // update hp
-    if(userHP == 0) { // fainted
-    document.getElementById('message').innerHTML = " Blastoise has fainted, You lost! " // fainted
+    if (userHP == 0) { // fainted
+      addMessage(" Blastoise has fainted, You lost! "); // fainted
     showResetButton();
     }
   }
 }
 
 function dragonClaw() {
-  var miss = Math.floor((Math.random() * 10) + 1);
-  if(miss == 1 ) {
-    document.getElementById('message').innerHTML = " Charizard's attack missed! "
+  var miss = Math.floor((Math.random() * 20) + 1);
+  if (miss == 1) {
+    addMessage(" Charizard's attack missed! ");
   }
   else {
-  document.getElementById('message').innerHTML = " Charizard used dragon claw "
+    addMessage(" Charizard used dragon claw ");
   var critical = Math.floor((Math.random() * 10) + 1);
   var baseDmg = 20 * opAttack;
-    if(critical == 4){
-      for(var x = 0; x < 2; x++){
-        userHP = userHP - baseDmg;
+    if (critical == 4) {
+      for (var x = 0; x < 2; x++) {
+        userHP = userHP - baseDmg * 0.5;
       }
     }
-    else{
-      userHP = userHP - baseDmg;
+    else {
+      userHP = userHP - baseDmg * 0.5;
     }
-  if(userHP < 0) { userHP = 0}
+    if (userHP < 0) { userHP = 0 }
   updateHP('myHPBar', 'myHPCounter', userHP, 160);
-    if(userHP == 0){
-      document.getElementById('message').innerHTML = " Blastoise has fainted, You lost! "
+    if (userHP == 0) {
+      addMessage(" Blastoise has fainted, You lost! ");
       showResetButton();
     }
   }
 }
 
 function ember() {
-  var miss = Math.floor((Math.random() * 10) + 1);
-  if(miss == 1 ) {
-    document.getElementById('message').innerHTML = " Charizard's attack missed! "
+  var miss = Math.floor((Math.random() * 20) + 1);
+  if (miss == 1) {
+    addMessage(" Charizard's attack missed! ");
   }
   else {
-  document.getElementById('message').innerHTML = " Charizard used ember "
+    addMessage(" Charizard used ember ");
   var critical = Math.floor((Math.random() * 10) + 1);
   var baseDmg = 10 * opAttack;
-    if(critical == 4){
-      for(var x = 0; x < 2; x++){
-        userHP = userHP - baseDmg;
+    if (critical == 4) {
+      for (var x = 0; x < 2; x++) {
+        userHP = userHP - baseDmg * 0.5;
       }
     }
-    else{
-      userHP = userHP - baseDmg;
+    else {
+      userHP = userHP - baseDmg * 0.5;
     }
-  if(userHP < 0) { userHP = 0}
+    if (userHP < 0) { userHP = 0 }
   updateHP('myHPBar', 'myHPCounter', userHP, 160);
-    if(userHP == 0){
-      document.getElementById('message').innerHTML = " Blastoise has fainted, You lost! "
+    if (userHP == 0) {
+      addMessage(" Blastoise has fainted, You lost! ");
       showResetButton();
     }
   }
@@ -1371,10 +1665,10 @@ function growl() {
   // If Charizard uses growl, lower Blastoise's attack
   if (typeof playerMove !== 'undefined' && playerMove === 1 && userHP !== 0) {
     userAttack = Math.max(0.5, userAttack - 1);
-    document.getElementById('message').innerHTML = " Charizard used growl! Blastoise's attack fell! ";
+    addMessage(" Charizard used growl! Blastoise's attack fell! ");
   } else if (typeof playerMove !== 'undefined' && playerMove === 0 && opHP !== 0) {
     opAttack = Math.max(0.5, opAttack - 1);
-    document.getElementById('message').innerHTML = " Blastoise used growl! Charizard's attack fell! ";
+    addMessage(" Blastoise used growl! Charizard's attack fell! ");
   }
 }
 
@@ -1385,7 +1679,7 @@ function growl() {
 
 // Initialize the game immediately when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     initializeBattle();
   });
 } else {
@@ -1403,9 +1697,8 @@ function getBackSpriteUrl(pokemonName) {
   return `https://img.pokemondb.net/sprites/black-white/anim/back-normal/${name}.gif`;
 }
 
-// Animated grid background for the tab
-document.addEventListener('DOMContentLoaded', function() {
-  (function squaresBackground() {
+   // --- Animated grid background for the tab ---
+   function squaresBackground() {
     const canvas = document.getElementById('squares-bg');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -1471,46 +1764,31 @@ document.addEventListener('DOMContentLoaded', function() {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 
-    function updateAnimation() {
-      const effectiveSpeed = Math.max(speed, 0.1);
-      switch (direction) {
-        case 'right':
-          gridOffset.x = (gridOffset.x - effectiveSpeed + squareSize) % squareSize;
-          break;
-        case 'left':
-          gridOffset.x = (gridOffset.x + effectiveSpeed + squareSize) % squareSize;
-          break;
-        case 'up':
-          gridOffset.y = (gridOffset.y + effectiveSpeed + squareSize) % squareSize;
-          break;
-        case 'down':
-          gridOffset.y = (gridOffset.y - effectiveSpeed + squareSize) % squareSize;
-          break;
-        case 'diagonal':
-          gridOffset.x = (gridOffset.x - effectiveSpeed + squareSize) % squareSize;
-          gridOffset.y = (gridOffset.y - effectiveSpeed + squareSize) % squareSize;
-          break;
-        default:
-          break;
-      }
+    function animate() {
+      gridOffset.x += speed;
+      if (gridOffset.x > squareSize) gridOffset.x = 0;
       drawGrid();
-      requestAnimationFrame(updateAnimation);
+      requestAnimationFrame(animate);
     }
+    animate();
+  }
+  window.squaresBackground = squaresBackground;
 
-    canvas.addEventListener('mousemove', (event) => {
-      const rect = canvas.getBoundingClientRect();
-      const mouseX = event.clientX - rect.left;
-      const mouseY = event.clientY - rect.top;
-      const startX = Math.floor(gridOffset.x / squareSize) * squareSize;
-      const startY = Math.floor(gridOffset.y / squareSize) * squareSize;
-      const hoveredSquareX = Math.floor((mouseX + gridOffset.x - startX) / squareSize);
-      const hoveredSquareY = Math.floor((mouseY + gridOffset.y - startY) / squareSize);
-      hoveredSquare = { x: hoveredSquareX, y: hoveredSquareY };
-    });
-    canvas.addEventListener('mouseleave', () => {
-      hoveredSquare = null;
-    });
-
-    requestAnimationFrame(updateAnimation);
-  })();
+  document.addEventListener('DOMContentLoaded', function () {
+    squaresBackground();
+    initializeBattle();
 });
+
+// --- Disable move tracking ---
+var playerDisabledMove = null;
+var playerDisabledTurns = 0;
+var opponentDisabledMove = null;
+var opponentDisabledTurns = 0;
+
+// Decrement Disable counters at the end of each turn
+function decrementDisableCounters() {
+  if (playerDisabledTurns > 0) playerDisabledTurns--;
+  if (playerDisabledTurns === 0) playerDisabledMove = null;
+  if (opponentDisabledTurns > 0) opponentDisabledTurns--;
+  if (opponentDisabledTurns === 0) opponentDisabledMove = null;
+}

@@ -1,4 +1,5 @@
-/* Credit: Suki (hidden) */
+/* Credit: Matan (hidden) */
+/* Matan was here (hidden credit) */
 body {
   /* Suki was here (hidden credit) */
   font-family: 'Jersey 15', 'Courier New', monospace;
@@ -170,7 +171,7 @@ body {
   border-color: #666;
 }
 .stats {
-  /* Suki */
+  /* Matan */
   background: #333;
   border: 4px solid #000;
   border-radius: 12px;
@@ -321,12 +322,12 @@ body {
 /* Reset Button Styling */
 .reset-button {
   position: absolute;
-  top: 50%;
+  top: 56%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #666;
   border: 6px solid #000;
-  border-radius: 0;
+  border-radius: 24px; /* Make corners round */
   color: #fff;
   font-family: 'Jersey 15', 'Courier New', monospace;
   font-size: 42px;
@@ -429,4 +430,32 @@ body {
   pointer-events: all;
 }
 
-/* End of file // Suki */
+.statmod-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 8px;
+  min-width: 60px;
+  min-height: 25px;
+}
+
+.statmod-box {
+  display: inline-block;
+  padding: 4px 10px;
+  margin: 2px 0 2px 2px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: none;
+  color: #fff;
+  background: #888;
+  border: 1px solid #444;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  text-align: right;
+  letter-spacing: 1px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+}
+
+/* End of file // Matan */
