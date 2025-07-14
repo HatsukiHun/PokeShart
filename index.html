@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- Credit: Suki (hidden) -->
+<head>
+  <title>Pokemon</title>
+  <!-- Suki was here (hidden credit) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+  <script type = "text/javascript" src = "./pokemon.js"></script>
+  <link rel = "stylesheet" type = "text/css" href = "pokemon.css" />
+</head>
+<body>
+  <!-- Suki (hidden) -->
+  <canvas id="squares-bg"></canvas>
+  <div class="game-container">
+    <!-- Suki credit hidden here -->
+    <div class="game">
+      <div class="opponent">
+        <div class="stats">
+          <span class="name">
+            Pokemon
+          </span>
+          <span class="level">
+            86
+          </span>
+          <span class="hp-counter" id="apHPCounter">150/150</span>
+          <div class="hp-bar-container">
+            <div id="apHPBar" class="hp-bar" style="width: 100%;"></div>
+          </div>
+          <div class="status-container">
+            <div id="opponentStatus" class="status-box"></div>
+          </div>
+        </div>
+        <img class="pokemon" src="" alt="Opponent Pokemon" />
+      </div>
+      <div class="player">
+        <div class="stats">
+          <span class="name">
+            Pokemon
+          </span>
+          <span class="level">
+            86
+          </span>
+          <span class="hp-counter" id="myHPCounter">160/160</span>
+          <div class="hp-bar-container">
+            <div id="myHPBar" class="hp-bar" style="width: 100%;"></div>
+          </div>
+          <div class="status-container">
+            <div id="playerStatus" class="status-box"></div>
+          </div>
+        </div>
+        <img class="pokemon" src="" alt="Player Pokemon" />
+      </div>
+      <button id="resetButton" class="reset-button" onclick="resetGame()" style="display: none;">Play Again</button>
+      <div id="explosionAnimation" class="explosion-animation" style="display: none;">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.redd.it%2Fngvajk82v9dc1.gif&f=1&nofb=1&ipt=facc7d72020eed232d5244d72f9d6cfbd38410fc748404d54ac3204e4698e44c" alt="Explosion" class="explosion-gif">
+      </div>
+    </div>
+    <div class="box">
+      <div id = "message" class="message">
+        Loading battle...
+      </div>
+      <div class="actions">
+        <button id="move1" onclick="move1()">Move 1</button>
+        <button id="move2" onclick="move2()">Move 2</button>
+        <button id="move3" onclick="move3()">Move 3</button>
+        <button id="move4" onclick="move4()">Move 4</button>
+      </div>
+    </div>
+  </div>
+  <!-- End of file // Suki -->
+</body>
