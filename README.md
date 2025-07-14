@@ -1,3 +1,5 @@
+![Game Screenshot](Example.png)
+
 # Pokéfart
 
 A retro-style Pokémon battle game built with vanilla JavaScript, HTML, and CSS. Battle against AI opponents with authentic Pokémon mechanics including status effects, speed-based turn order, and classic battle animations.
