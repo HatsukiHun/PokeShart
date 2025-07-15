@@ -105,7 +105,7 @@ var movesDatabase = {
     "Double Team": { power: 0, accuracy: 0, pp: 15, type: "Normal", category: "Status", effect: "Raises evasion by 1 stage" },
     "Recover": { power: 0, accuracy: 0, pp: 10, type: "Normal", category: "Status", effect: "Restores half max HP" },
     "Harden": { power: 0, accuracy: 0, pp: 30, type: "Normal", category: "Status", effect: "Raises Defense by 1 stage" },
-    "Minimize": { power: 0, accuracy: 0, pp: 10, type: "Normal", category: "Status", effect: "Raises evasion by 2 stages" },
+
     "Smokescreen": { power: 0, accuracy: 100, pp: 20, type: "Normal", category: "Status", effect: "Lowers accuracy by 1 stage" },
     "Confuse Ray": { power: 0, accuracy: 100, pp: 10, type: "Ghost", category: "Status", effect: "Confuses opponent" },
     "Defense Curl": { power: 0, accuracy: 0, pp: 40, type: "Normal", category: "Status", effect: "Raises Defense by 1 stage" },

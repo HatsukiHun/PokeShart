@@ -48,7 +48,43 @@ function fadeInStatusBox(statusBox, delay = 0) {
 }
 
 // Function to determine turn order based on speed stats
-function determineTurnOrder() {
+function determineTurnOrder(playerMoveName, opponentMoveName) {
+  // Check if either Pokemon is using Quick Attack (always goes first)
+  var playerUsingQuickAttack = playerMoveName === "Quick Attack";
+  var opponentUsingQuickAttack = opponentMoveName === "Quick Attack";
+  
+  // If both are using Quick Attack, use normal speed calculation
+  if (playerUsingQuickAttack && opponentUsingQuickAttack) {
+    // Get base speed stats from Pokemon data
+    var playerBaseSpeed = currentPlayerPokemon.speed;
+    var opponentBaseSpeed = currentOpponentPokemon.speed;
+    
+    // Apply speed modifiers
+    var playerFinalSpeed = playerBaseSpeed * userSpeed;
+    var opponentFinalSpeed = opponentBaseSpeed * opSpeed;
+    
+    // Add some randomness (like in real Pokemon)
+    var playerRandom = Math.random() * 0.1; // 10% randomness
+    var opponentRandom = Math.random() * 0.1;
+    
+    playerFinalSpeed += playerRandom;
+    opponentFinalSpeed += opponentRandom;
+    
+    // Return true if player goes first, false if opponent goes first
+    return playerFinalSpeed >= opponentFinalSpeed;
+  }
+  
+  // If only player is using Quick Attack, player goes first
+  if (playerUsingQuickAttack) {
+    return true;
+  }
+  
+  // If only opponent is using Quick Attack, opponent goes first
+  if (opponentUsingQuickAttack) {
+    return false;
+  }
+  
+  // If neither is using Quick Attack, use normal speed calculation
   // Get base speed stats from Pokemon data
   var playerBaseSpeed = currentPlayerPokemon.speed;
   var opponentBaseSpeed = currentOpponentPokemon.speed;
@@ -79,10 +115,10 @@ function executeTurn(playerMoveIndex) {
     return;
   }
 
-  var playerGoesFirst = determineTurnOrder();
   var playerMoveName = currentPlayerPokemon.moves[playerMoveIndex];
   var opponentMoveIndex = Math.floor(Math.random() * 4);
   var opponentMoveName = currentOpponentPokemon.moves[opponentMoveIndex];
+  var playerGoesFirst = determineTurnOrder(playerMoveName, opponentMoveName);
 
   // Block disabled move for opponent
   if (opponentDisabledMove && opponentDisabledTurns > 0 && opponentMoveName === opponentDisabledMove) {
@@ -596,32 +632,47 @@ function executeMove(moveName, pokemon, isOpponent) {
   var totalDamage = 0;
   var fainted = false;
 
+  // Show move usage message first
+  addMessage(attackerName + " used " + moveName + "!");
+
+  // Calculate critical hit once for all hits
+  var isCritical = false;
+  var critical = Math.floor((Math.random() * 10) + 1);
+  if (effect && effect.includes("High critical hit ratio")) {
+    if (Math.random() < 0.25) {
+      isCritical = true;
+    }
+  } else if (critical == 4) {
+    isCritical = true;
+  }
+
   function processHit(i) {
     if (i >= hits || fainted) {
-      // After all hits, show move summary and process effects
-      addMessage(attackerName + " used " + moveName + "!", function() {
-        processMoveEffect(moveName, pokemon, isOpponent, totalDamage);
-      });
+      // After all hits, process effects
+      processMoveEffect(moveName, pokemon, isOpponent, totalDamage);
       return;
     }
+    
     var baseDmg = getMoveDamage(moveName) * (isOpponent ? opAttack : userAttack);
-    var critical = Math.floor((Math.random() * 10) + 1);
-    if (effect && effect.includes("High critical hit ratio")) {
-      if (Math.random() < 0.25) {
-        baseDmg *= 2;
+    
+    // Apply critical hit if determined
+    if (isCritical) {
+      baseDmg *= 2;
+      if (i === 0) { // Only show critical hit message once
         addMessage("A critical hit!");
       }
-    } else if (critical == 4) {
-      baseDmg *= 2;
-      addMessage("A critical hit!");
     }
+    
     // Apply defense reduction
     var targetDefense = isOpponent ? userDefense : opDefense;
     baseDmg = Math.floor(baseDmg / targetDefense);
     baseDmg = Math.max(1, baseDmg); // Always at least 1
+    
     targetHP -= baseDmg * 0.5;
     totalDamage += baseDmg * 0.5;
+    
     if (targetHP < 0) targetHP = 0;
+    
     if (isOpponent) {
       userHP = targetHP;
       updateHP('myHPBar', 'myHPCounter', userHP, targetMaxHP);
@@ -641,6 +692,7 @@ function executeMove(moveName, pokemon, isOpponent) {
         return;
       }
     }
+    
     if (hits > 1) {
       addMessage(attackerName + " hit " + targetName + "! (" + (i+1) + "/" + hits + ")", function() {
         processHit(i+1);
@@ -1149,6 +1201,90 @@ function processStatusMoveEffect(moveName, pokemon, isOpponent) {
     }
     return;
   }
+  
+  if (effect.includes("Copies opponent's last move")) {
+    // Get the last move used by the opponent
+    var lastMove = isOpponent ? playerLastMove : opponentLastMove;
+    if (!lastMove) {
+      addMessage(attackerName + " tried to mimic, but it failed!");
+      return;
+    }
+    
+    // Check if the move exists in the database
+    if (!movesDatabase[lastMove]) {
+      addMessage(attackerName + " tried to mimic, but it failed!");
+      return;
+    }
+    
+    addMessage(attackerName + " learned " + lastMove + "!");
+    
+    // Execute the copied move immediately
+    if (isStatusMove(lastMove)) {
+      executeStatusMove(lastMove, pokemon, isOpponent);
+    } else {
+      // For damaging moves, we need to execute them with proper accuracy checks
+      var moveAccuracy = getMoveAccuracy(lastMove);
+      var attackerAccuracy = isOpponent ? opAccuracy : userAccuracy;
+      var finalAccuracy = moveAccuracy * attackerAccuracy;
+      
+      if (Math.random() * 100 > finalAccuracy) {
+        addMessage(attackerName + "'s " + lastMove + " missed!");
+        return;
+      }
+      
+      // Execute the copied damaging move
+      executeMove(lastMove, pokemon, isOpponent);
+    }
+    return;
+  }
+  
+  if (effect.includes("Uses random move")) {
+    // Get all available moves from the database
+    var allMoves = Object.keys(movesDatabase);
+    
+    // Filter out certain moves that shouldn't be used by Metronome
+    var excludedMoves = ["Struggle", "Metronome", "Mirror Move", "Mimic"];
+    var availableMoves = allMoves.filter(move => !excludedMoves.includes(move));
+    
+    // Select a random move
+    var randomMove = availableMoves[Math.floor(Math.random() * availableMoves.length)];
+    
+    addMessage(attackerName + " used Metronome!");
+    addMessage("Metronome used " + randomMove + "!");
+    
+    // Execute the random move immediately
+    if (isStatusMove(randomMove)) {
+      executeStatusMove(randomMove, pokemon, isOpponent);
+    } else {
+      // For damaging moves, we need to execute them with proper accuracy checks
+      var moveAccuracy = getMoveAccuracy(randomMove);
+      var attackerAccuracy = isOpponent ? opAccuracy : userAccuracy;
+      var finalAccuracy = moveAccuracy * attackerAccuracy;
+      
+      if (Math.random() * 100 > finalAccuracy) {
+        addMessage(attackerName + "'s " + randomMove + " missed!");
+        return;
+      }
+      
+      // Execute the random damaging move
+      executeMove(randomMove, pokemon, isOpponent);
+    }
+    return;
+  }
+  
+  if (effect.includes("Drains HP each turn")) {
+    // Check if target already has leech seed
+    if (targetStatus.includes("leechseed")) {
+      addMessage(attackerName + "'s move had no effect!");
+      return;
+    }
+    
+    // Apply leech seed status
+    targetStatus.push("leechseed");
+    updateStatusDisplay();
+    addMessage(targetName + " was seeded!");
+    return;
+  }
 }
 
 // Function to check and apply status effects at the start of a turn
@@ -1290,6 +1426,50 @@ function checkStatusEffects(isOpponent) {
         } else {
           toRemove.push(status);
           addMessage(pokemonName + " snapped out of confusion!");
+        }
+        break;
+      case "leechseed":
+        var maxHP = isOpponent ? calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level) : calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level);
+        var leechDamage = Math.floor(maxHP / 8); // 1/8 of max HP
+        
+        if (isOpponent) {
+          // Opponent loses HP
+          opHP -= leechDamage * 0.5;
+          if (opHP < 0) opHP = 0;
+          updateHP('apHPBar', 'apHPCounter', opHP, maxHP);
+          
+          // Player gains HP
+          var playerMaxHP = calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level);
+          userHP = Math.min(userHP + leechDamage * 0.5, playerMaxHP);
+          updateHP('myHPBar', 'myHPCounter', userHP, playerMaxHP);
+          
+          addMessage(pokemonName + " was hurt by Leech Seed!");
+          addMessage(currentPlayerPokemon.name + " regained health!");
+          
+          if (opHP == 0) {
+            showOnlyFaintMessage(currentOpponentPokemon.name + " has fainted, Enemy lost!");
+            showResetButton();
+            return false;
+          }
+        } else {
+          // Player loses HP
+          userHP -= leechDamage * 0.5;
+          if (userHP < 0) userHP = 0;
+          updateHP('myHPBar', 'myHPCounter', userHP, maxHP);
+          
+          // Opponent gains HP
+          var opponentMaxHP = calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level);
+          opHP = Math.min(opHP + leechDamage * 0.5, opponentMaxHP);
+          updateHP('apHPBar', 'apHPCounter', opHP, opponentMaxHP);
+          
+          addMessage(pokemonName + " was hurt by Leech Seed!");
+          addMessage(currentOpponentPokemon.name + " regained health!");
+          
+          if (userHP == 0) {
+            showOnlyFaintMessage(currentPlayerPokemon.name + " has fainted, You lost!");
+            showResetButton();
+            return false;
+          }
         }
         break;
     }
