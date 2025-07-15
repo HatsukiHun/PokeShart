@@ -838,6 +838,22 @@ function processMoveEffect(moveName, pokemon, isOpponent, totalDamage) {
     addMessage("But nothing happened!");
     return;
   }
+  
+  // One-hit KO moves
+  if (effect && effect.includes("One-hit KO")) {
+    if (isOpponent) {
+      userHP = 0;
+      updateHP('myHPBar', 'myHPCounter', userHP, calculateHP(currentPlayerPokemon.hp, currentPlayerPokemon.level));
+      showOnlyFaintMessage(currentPlayerPokemon.name + " has fainted, You lost!");
+      showResetButton();
+    } else {
+      opHP = 0;
+      updateHP('apHPBar', 'apHPCounter', opHP, calculateHP(currentOpponentPokemon.hp, currentOpponentPokemon.level));
+      showOnlyFaintMessage(currentOpponentPokemon.name + " has fainted, Enemy lost!");
+      showResetButton();
+    }
+    return;
+  }
 }
 
 // Function to check if a move is a status move

@@ -45,7 +45,7 @@ var movesDatabase = {
     "Leer": { power: 0, accuracy: 100, pp: 30, type: "Normal", category: "Status", effect: "Lowers Defense by 1 stage" },
     "Bite": { power: 48, accuracy: 100, pp: 25, type: "Dark", category: "Physical", effect: "May cause flinch" },
     "Growl": { power: 0, accuracy: 100, pp: 40, type: "Normal", category: "Status", effect: "Lowers Attack by 1 stage" },
-    "Roar": { power: 0, accuracy: 0, pp: 20, type: "Normal", category: "Status", effect: "Forces opponent to switch" },
+
     "Sing": { power: 0, accuracy: 55, pp: 15, type: "Normal", category: "Status", effect: "Puts opponent to sleep" },
     "Supersonic": { power: 0, accuracy: 55, pp: 20, type: "Normal", category: "Status", effect: "Confuses opponent" },
     "Sonic Boom": { power: 0, accuracy: 90, pp: 20, type: "Normal", category: "Special", effect: "Always deals 20 damage" },
@@ -101,7 +101,7 @@ var movesDatabase = {
     "Rage": { power: 16, accuracy: 100, pp: 20, type: "Normal", category: "Physical", effect: "Raises Attack when hit" },
     "Night Shade": { power: 0, accuracy: 100, pp: 15, type: "Ghost", category: "Special", effect: "Damage equals user's level" },
     "Mimic": { power: 0, accuracy: 0, pp: 10, type: "Normal", category: "Status", effect: "Copies opponent's last move" },
-    "Screech": { power: 0, accuracy: 85, pp: 40, type: "Normal", category: "Status", effect: "Lowers Defense by 2 stages" },
+
     "Double Team": { power: 0, accuracy: 0, pp: 15, type: "Normal", category: "Status", effect: "Raises evasion by 1 stage" },
     "Recover": { power: 0, accuracy: 0, pp: 10, type: "Normal", category: "Status", effect: "Restores half max HP" },
     "Harden": { power: 0, accuracy: 0, pp: 30, type: "Normal", category: "Status", effect: "Raises Defense by 1 stage" },
@@ -145,7 +145,7 @@ var movesDatabase = {
     "Spore": { power: 0, accuracy: 100, pp: 15, type: "Grass", category: "Status", effect: "Puts opponent to sleep" },
     "Flash": { power: 0, accuracy: 100, pp: 20, type: "Normal", category: "Status", effect: "Lowers accuracy by 1 stage" },
     "Psywave": { power: 0, accuracy: 100, pp: 15, type: "Psychic", category: "Special", effect: "Random damage between 1 and 1.5x user's level" },
-    "Splash": { power: 0, accuracy: 0, pp: 40, type: "Normal", category: "Status", effect: "Does nothing" },
+
     "Acid Armor": { power: 0, accuracy: 0, pp: 20, type: "Poison", category: "Status", effect: "Raises Defense by 2 stages" },
     "Crabhammer": { power: 80, accuracy: 90, pp: 10, type: "Water", category: "Physical", effect: "High critical hit ratio" },
     "Fury Swipes": { power: 14, accuracy: 80, pp: 15, type: "Normal", category: "Physical", effect: "Hits 2-5 times" },
